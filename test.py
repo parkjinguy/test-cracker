@@ -12,5 +12,6 @@ async def on_message(message):
     if message.content.startswith("안녕"):
         await message.channel.send("할말")
 
-access_token = os.environ["BOT_TOKEN"]
-client.run(access_token)
+#access_token = os.environ["BOT_TOKEN"]
+#client.run(access_token)
+client.run("NzI4NjQ3ODgwNzE3NTAwNDU3.Xv_FOA.L3isfQt8k2LvHRcA9DnfUv-CyOw")
