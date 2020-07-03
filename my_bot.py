@@ -1,7 +1,7 @@
 
 # discord 라이브러리 사용 선언
 import discord
-
+import os
 
 class chatbot(discord.Client):
     # 프로그램이 처음 실행되었을 때 초기 구성
@@ -97,4 +97,5 @@ if __name__ == "__main__":
     # 객체를 생성
     client = chatbot()
     # TOKEN 값을 통해 로그인하고 봇을 실행
-    client.run("NzI4NTYwNzg0NjMxNzkxNjU2.Xv8PBQ.DSYa1LGVtabXokCdPp4kkImqfP0")
+    access_token = os.environ["BOT_TOKEN"]
+    client.run(access_token)
