@@ -69,17 +69,6 @@ class chatbot(discord.Client):
                 channel = await message.author.create_dm()
                 await channel.send("DM 채널이 없어서 만들고 보냈어요!")
             return None;
-        
-    bad = ['ㅅㅂ','시발','씨발']
-    async def on_message(message):
-            ##### remove bad words
-        message_contant=message.content
-        for i in bad:
-            if i in message_contant:
-                await message.channel.send('욕설 검지검지')
-                await message.delete()
-                return None
-            
         # 서버에 멤버가 들어왔을 때 수행 될 이벤트
     async def on_member_join(self, member):
         msg = "<@{}>님이 서버에 들어오셨어요. 환영합니다.".format(str(member.id))
