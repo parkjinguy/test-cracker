@@ -69,10 +69,6 @@ class chatbot(discord.Client):
                 channel = await message.author.create_dm()#dm채널 없으면 추가후 전송
                 await channel.send("명령어\n!아잇\n과자\n!냥이\n!안녕\n스뜐끼\n나머지는 추가예정")
             return None
-        if "스뜐끼" in message.content:
-            channel = message.channel
-            await channel.send("스뜐끼!!!!")
-            return None
         #욕 필터
         #mess = message.content
         #tmp = ["씨발","ㅅㅂ","시발","병신","좆까","니얼굴","니 얼굴"]
