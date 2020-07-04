@@ -8,7 +8,7 @@ class chatbot(discord.Client):
     async def on_ready(self):
         # 상태 메시지 설정
         # 종류는 3가지: Game, Streaming, CustomActivity
-        game = discord.Game("수정")
+        game = discord.Game("")
 
         # 계정 상태를 변경한다.
         # 온라인 상태, game 중으로 설정
@@ -55,30 +55,20 @@ class chatbot(discord.Client):
             await channel.send(msg)
             await channel.send("호출")
             return None
-        if message.content == "!설명":
+        if message.content == "!도움말":
             if message.author.dm_channel:
-                await message.author.dm_channel.send("DM 채널이 있어서 그냥 보냈어요!")
+                await message.author.dm_channel.send("명령어\n!아잇\n과자\n!냥이\n!안녕\n스뜐끼\n나머지는 추가예정")
             elif message.author.dm_channel is None:
-                channel = await message.author.create_dm()
-                await channel.send("DM 채널이 없어서 만들고 보냈어요!")
+                channel = await message.author.create_dm()#dm채널 없으면 추가후 전송
+                await channel.send("명령어\n!아잇\n과자\n!냥이\n!안녕\n스뜐끼\n나머지는 추가예정")
             return None
         if "스뜐끼" in message.content:
             channel = message.channel
             await channel.send("스뜐끼!!!!")
             return None
-        if "도움말" in message.content:
-            channel = message.channel
-            await channel.send("명령어")
-            await channel.send("!아잇")
-            await channel.send("과자")
-            await channel.send("!냥이")
-            await channel.send("!안녕")
-            await channel.send("스뜐끼")
-            await channel.send("")
-            return None
-        #욕 
+        #욕 필터
         mess = message.content
-        tmp = ["씨발","ㅅㅂ","병신","좆까","니얼굴","니 얼굴"]
+        tmp = ["씨발","ㅅㅂ","시발","병신","좆까","니얼굴","니 얼굴"]
         for i in tmp:
             bad = mess.find(i)
             #print(bad)
