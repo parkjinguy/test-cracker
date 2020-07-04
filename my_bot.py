@@ -134,12 +134,12 @@ class chatbot(discord.Client):
             return None
         if "모름" in message.content:
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"13.jpg")
+            file=discord.File(dirctory+"13.png")
             await message.channel.send(file=file)
             return None
         if "기분좋아" in message.content:
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"14.jpg")
+            file=discord.File(dirctory+"14.gif")
             await message.channel.send(file=file)
             return None                          
         if message.content == "!햄울찜":
