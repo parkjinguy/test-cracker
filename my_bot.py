@@ -58,7 +58,6 @@ class chatbot(discord.Client):
         #메시지 해당 사람 태그 호출
         if message.content == "과자":
             channel = message.channel;
-
             msg = "<@{}>".format(message.author.id);
             await channel.send(msg);
             return None;
@@ -68,6 +67,11 @@ class chatbot(discord.Client):
             elif message.author.dm_channel is None:
                 channel = await message.author.create_dm()
                 await channel.send("DM 채널이 없어서 만들고 보냈어요!")
+            return None;
+        if message.content == "!아잇":
+            channel = message.channel;
+            file = discord.File("11.jpg")
+            await message.channel.send(files=file)
             return None;
         # 서버에 멤버가 들어왔을 때 수행 될 이벤트
     async def on_member_join(self, member):
