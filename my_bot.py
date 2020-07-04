@@ -70,7 +70,7 @@ class chatbot(discord.Client):
             return None;
         if "도움말" in message:
             channel = message.channel;
-            await channel.send("")
+            await channel.send("도움")
         #사진 
         if message.content == "!아잇":
             dirctory = os.path.dirname(__file__)
