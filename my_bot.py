@@ -105,6 +105,30 @@ class chatbot(discord.Client):
             file=discord.File(dirctory+"3.jpg")
             await channel.send("언제와!!!")
             return None
+        if message.content == "!레드":
+            channel = message.channel;
+            file=discord.File(dirctory+"6.jpg")
+            return None
+        if message.content == "!크래커":
+            channel = message.channel;
+            file=discord.File(dirctory+"5.jpg")
+            return None
+        if message.content == "!보리":
+            channel = message.channel;
+            file=discord.File(dirctory+"7.jpg")
+            return None
+        if message.content == "!리브":
+            channel = message.channel;
+            file=discord.File(dirctory+"8.jpg")
+            return None
+        if message.content == "!크래커":
+            channel = message.channel;
+            file=discord.File(dirctory+"5.jpg")
+            return None
+        if "흐뭇 " in message.content:
+            channel = message.channel;
+            file=discord.File(dirctory+"9.jpg")
+            return None
         global ii
         global count
         if "!사다리 " in message.content:
