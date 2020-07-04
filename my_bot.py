@@ -83,6 +83,13 @@ class chatbot(discord.Client):
             await channel.send("스뜐끼")
             await channel.send("")
             return None;
+         message_contant=message.content
+         bad[] = ["ㅅㅂ","시발","씨발"]
+         for i in bad: 
+            if i in message_contant: 
+               await message.channel.send('욕설 검지검지') 
+               await message.delete()
+
         #사진 
         if message.content == "!아잇":
             dirctory = os.path.dirname(__file__)
