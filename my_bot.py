@@ -76,8 +76,7 @@ class chatbot(discord.Client):
             return None;
         if message.content == "!냥이":
             #dirctory = os.path.dirname(__file__)
-            #file=discord.File(dirctory+"냥이.jpg")
-            file=discord.File("https://github.com/parkjinguy/test-cracker/tree/master/img/냥이.jpg")
+            file=discord.File(dirctory+"냥이.jpg")
             await message.channel.send(file=file)
             return None;
         # 서버에 멤버가 들어왔을 때 수행 될 이벤트
