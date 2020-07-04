@@ -67,13 +67,13 @@ class chatbot(discord.Client):
             await channel.send("스뜐끼!!!!")
             return None
         #욕 필터
-        mess = message.content
-        tmp = ["씨발","ㅅㅂ","시발","병신","좆까","니얼굴","니 얼굴"]
-        for i in tmp:
-            bad = mess.find(i)
+        #mess = message.content
+        #tmp = ["씨발","ㅅㅂ","시발","병신","좆까","니얼굴","니 얼굴"]
+        #for i in tmp:
+            #bad = mess.find(i)
             #print(bad)
-            if bad == 0:
-                await message.channel.send("욕하지 마세요")
+            #if bad == 0:
+                #await message.channel.send("욕하지 마세요")
                 #await message.delete() 현재 관리자로 인해 비활성화
         #사진 
         if message.content == "!아잇":
