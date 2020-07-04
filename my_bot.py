@@ -71,12 +71,12 @@ class chatbot(discord.Client):
         #사진 
         if message.content == "!아잇":
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"/img/11.jpg")
+            file=discord.File(dirctory+"11.jpg")
             await message.channel.send(file=file)
             return None;
         if message.content == "!냥이":
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"/img/냥이.jpg")
+            file=discord.File(dirctory+"냥이.jpg")
             await message.channel.send(file=file)
             return None;
         # 서버에 멤버가 들어왔을 때 수행 될 이벤트
