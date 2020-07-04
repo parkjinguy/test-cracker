@@ -45,30 +45,32 @@ class chatbot(discord.Client):
             await channel.send(msg)
             return None
         #메시지 해당 사람 태그 호출
-        if message.content == "과자":
+        '''if message.content == "과자":
             channel = message.channel;
             msg = "<@{}>".format("#9522")
             await client.send_message(channel, "<@creake>")
-            return None
+            return None'''
         if message.content == "!도움말":
             if message.author.dm_channel:
-                await message.author.dm_channel.send("명령어 :  !아잇, 과자, !냥이, !안녕, !팀설정, !팀결과, !패치로그, 모름, 사딸라, !레드, !크래커, !창규, 흐뭇, !냥대노, !냥이월급")
-                await message.author.dm_channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다) ")
+                await message.author.dm_channel.send("명령어 :  !아잇, !냥이, !안녕, !팀설정, !팀결과, !패치로그, 모름, 사딸라, !레드, !크래커, !창규, 흐뭇, !냥대노, !냥이월급, !모리, !리브, !햄울찜, 기분좋아")
+                await message.author.dm_channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다.) ")
             elif message.author.dm_channel is None:
                 channel = await message.author.create_dm()#dm채널 없으면 추가후 전송
-                await channel.send("명령어 : !아잇, 과자, !냥이, !안녕, !팀설정, !팀결과, !패치로그, 모름, 사딸라, !레드, !크래커, !창규, 흐뭇, !냥대노, !냥이월급")
-                await channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다)")
+                await channel.send("명령어 : !아잇, !냥이, !안녕, !팀설정, !팀결과, !패치로그, 모름, 사딸라, !레드, !크래커, !창규, 흐뭇, !냥대노, !냥이월급 !모리, !리브, !햄울찜, 기분좋아")
+                await channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다.)")
             return None
         if message.content == "!패치로그":
             if message.author.dm_channel:
                 await message.author.dm_channel.send("2020-07-03 스뜐끼봇이 추가되었습니다.")
-                await message.author.dm_channel.send("2020-07-04 자동 팀설정이 추가되었습니다")
+                await message.author.dm_channel.send("2020-07-04 자동 팀설정이 추가되었습니다.")
                 await message.author.dm_channel.send("2020-07-04 스뜐끼 답변 기능이 제거되었습니다.")
+                await message.author.dm_channel.send("2020-07-05 흐뭇, !냥대노, !냥이월급, 모름, 사딸라, !레드, !크래커, !창규, !보리, !리브, !햄울찜, 기분좋아 등이 추가되었습니다.")
             elif message.author.dm_channel is None:
                 channel = await message.author.create_dm()#dm채널 없으면 추가후 전송
                 await channel.send("2020-07-03 스뜐끼봇이 추가되었습니다.")
                 await channel.send("2020-07-04 자동 팀설정이 추가되었습니다")
                 await channel.send("2020-07-04 스뜐끼 답변 기능이 제거되었습니다.")
+                await channel.send("2020-07-05 흐뭇, !냥대노, !냥이월급, 모름, 사딸라, !레드, !크래커, !창규, !보리, !리브, !햄울찜, 기분좋아 등이 추가되었습니다.")
             return None
         #욕 필터
         #mess = message.content
