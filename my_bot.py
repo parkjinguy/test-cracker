@@ -42,7 +42,7 @@ class chatbot(discord.Client):
             # 답변 내용 구성
             msg = "!과자"
             # msg에 지정된 내용대로 메시지를 전송
-            await channel.send(msg+"호출")
+            await channel.send(msg"호출")
             return None
         if message.content == "!창규":
             # 현재 채널을 받아옴
