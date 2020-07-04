@@ -3,7 +3,6 @@
 import discord
 import os
 import random
-import asyncio
 
 class chatbot(discord.Client):
    
