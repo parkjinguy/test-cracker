@@ -68,9 +68,9 @@ class chatbot(discord.Client):
                 channel = await message.author.create_dm()
                 await channel.send("DM 채널이 없어서 만들고 보냈어요!")
             return None;
-        if "도움말" in message.content:
+        if "스뜐끼" in message.content:
             channel = message.channel;
-            await channel.send("도움")
+            await channel.send("스뜐끼!!!!")
         #사진 
         if message.content == "!아잇":
             dirctory = os.path.dirname(__file__)
