@@ -44,15 +44,6 @@ class chatbot(discord.Client):
             # msg에 지정된 내용대로 메시지를 전송
             await channel.send(msg)
             return None
-            # 답변 내용 구성
-        if message.content == "!창규":
-            # 현재 채널을 받아옴
-            channel = message.channel
-            # 답변 내용 구성
-            msg = "하이"
-            # msg에 지정된 내용대로 메시지를 전송
-            await channel.send(msg)
-            return None
         #메시지 해당 사람 태그 호출
         if message.content == "과자":
             channel = message.channel;
@@ -124,6 +115,10 @@ class chatbot(discord.Client):
         if message.content == "!크래커":
             channel = message.channel;
             file=discord.File(dirctory+"5.jpg")
+            return None
+        if message.content == "창규":
+            channel = message.channel;
+            file=discord.File(dirctory+"4.jpg")
             return None
         if "흐뭇 " in message.content:
             channel = message.channel;
