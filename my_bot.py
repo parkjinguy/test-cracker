@@ -95,6 +95,11 @@ class chatbot(discord.Client):
             file=discord.File(dirctory+"11.jpg")
             await message.channel.send(file=file)
             return None
+        if message.content == "!햄프":
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"2.jpg")
+            await message.channel.send(file=file)
+            return None
         if message.content == "!냥이":
             channel = message.channel;
             await channel.send("언제와!!!")
@@ -116,6 +121,11 @@ class chatbot(discord.Client):
                 tmp.append(i)
                 count=count+1
             return None
+        if message.content == "!햄울찜":
+            channel = message.channel;
+            await channel.send("햄찌를 썰어넣은 맛있는 햄울찜")
+            return None
+        
         if message.content == "!결과":
             channel = message.channel
             if ii == 0:
