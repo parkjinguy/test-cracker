@@ -102,6 +102,7 @@ class chatbot(discord.Client):
             return None
         if message.content == "!냥이":
             channel = message.channel;
+            file=discord.File(dirctory+"3.jpg")
             await channel.send("언제와!!!")
             return None
         global ii
