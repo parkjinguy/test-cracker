@@ -68,7 +68,7 @@ class chatbot(discord.Client):
                 channel = await message.author.create_dm()
                 await channel.send("DM 채널이 없어서 만들고 보냈어요!")
             return None;
-        if "도움말" in message:
+        if "도움말" in message.content:
             channel = message.channel;
             await channel.send("도움")
         #사진 
