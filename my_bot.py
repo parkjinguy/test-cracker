@@ -70,8 +70,7 @@ class chatbot(discord.Client):
             return None;
         if message.content == "!아잇":
             channel = message.channel;
-            file = discord.File("11.jpg")
-            await message.channel.send(files=file)
+            embed.set_image(url="https://imgur.com/LOvfsRt")
             return None;
         # 서버에 멤버가 들어왔을 때 수행 될 이벤트
     async def on_member_join(self, member):
