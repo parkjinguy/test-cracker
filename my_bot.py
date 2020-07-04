@@ -91,13 +91,7 @@ class chatbot(discord.Client):
             await message.delete()
             await bot.process_commands(message)
             return None;
-         
-        tmp = message.channel
-        bad = tmp.find("씨발")
-        if bad >=0:
-           await message.content.find("욕은 ㄴㄴ")
-           await message.delete()
-        await bot.process_commands(message)
+
         #사진 
         if message.content == "!아잇":
             dirctory = os.path.dirname(__file__)
