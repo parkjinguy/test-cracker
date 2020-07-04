@@ -58,7 +58,7 @@ class chatbot(discord.Client):
         #메시지 해당 사람 태그 호출
         if message.content == "과자":
             channel = message.channel;
-            msg = "<@{}>".format(message.author.id)
+            msg = "<@{}>".format("#9522")
             await channel.send(msg)
             return None
         if message.content == "!설명":
