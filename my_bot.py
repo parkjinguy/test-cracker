@@ -68,6 +68,7 @@ class chatbot(discord.Client):
                 channel = await message.author.create_dm()
                 await channel.send("DM 채널이 없어서 만들고 보냈어요!")
             return None;
+        #사진 
         if message.content == "!아잇":
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"11.jpg")
