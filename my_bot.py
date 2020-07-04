@@ -2,7 +2,13 @@
 # discord 라이브러리 사용 선언
 import discord
 import os
+import random
 
+tmp=[]
+tmpt=[]
+chek=[]
+result1=[]
+result2=[]
 class chatbot(discord.Client):
    
     # 프로그램이 처음 실행되었을 때 초기 구성
@@ -86,7 +92,40 @@ class chatbot(discord.Client):
             channel = message.channel;
             await channel.send("언제와!!!")
             return None;
-        
+         #짝수 인원 입력시 2개팀으로 나눈다
+        if "!사다리 " in message.content:
+            global count
+            count=0
+            print("in")
+            arr_str = str(message.content).split(" ")
+            for i in arr_str:
+                tmp.append(i)
+                count=count+1
+            return None
+        if message.content == "!결과":
+            while len(chek) != len(tmp)-1:
+                couna = random.randrange(1,count)
+                if couna not in chek:
+                    chek.append(couna)
+                    print(couna)
+            for a in chek:
+                tmpt.append(tmp[a])
+            tmm=count//2
+            print(tmm)
+            for c in range(0,tmm):
+                result1.append(tmpt[c])
+            for s in range(tmm,tmm+tmm):
+                result2.append(tmpt[s])
+            shw1=""
+            shw2=""
+            for a1 in result1:
+                shw1=shw1+" "+a1
+            for a2 in result2:
+                shw2=shw2+" "+a2
+            channel = message.channel
+            await channel.send(shw1)
+            await channel.send(shw2)
+            return None
         # 서버에 멤버가 들어왔을 때 수행 될 이벤트
     async def on_member_join(self, member):
         msg = "<@{}>님이 서버에 들어오셨어요. 환영합니다.".format(str(member.id))
@@ -98,7 +137,6 @@ class chatbot(discord.Client):
         msg = "<@{}>님이 서버에서 나가거나 추방되었습니다.".format(str(member.id))
         await find_first_channel(member.guild.text_channels).send(msg)
         return None
-
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
 if __name__ == "__main__":
