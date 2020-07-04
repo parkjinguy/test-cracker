@@ -83,14 +83,7 @@ class chatbot(discord.Client):
             await channel.send("스뜐끼")
             await channel.send("")
             return None;
-         tmp = message.channel
-         bad = tmp.find("씨발")
-         if bad >= 0:
-            channel = message.channel;
-            await message.content("욕은 ㄴㄴ")
-            await message.delete()
-            await bot.process_commands(message)
-            return None;
+         
 
         #사진 
         if message.content == "!아잇":
