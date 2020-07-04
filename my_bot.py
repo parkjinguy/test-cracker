@@ -124,6 +124,10 @@ class chatbot(discord.Client):
             channel = message.channel;
             file=discord.File(dirctory+"9.jpg")
             return None
+        if "사딸라 " in message.content:
+            channel = message.channel;
+            file=discord.File(dirctory+"12.jpg")
+            return None
         if message.content == "!햄울찜":
             channel = message.channel;
             file=discord.File(dirctory+"10.jpg")
