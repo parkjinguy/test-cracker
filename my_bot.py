@@ -92,45 +92,50 @@ class chatbot(discord.Client):
             await message.channel.send(file=file)
             return None
         if message.content == "!냥이":
-            channel = message.channel;
+            dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"3.jpg")
+            await message.channel.send(file=file)
             await channel.send("언제와!!!")
             return None
         if message.content == "!레드":
-            channel = message.channel;
+            dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"6.jpg")
+            await message.channel.send(file=file)
             return None
         if message.content == "!크래커":
-            channel = message.channel;
+            dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"5.jpg")
+            await message.channel.send(file=file)
             return None
         if message.content == "!보리":
-            channel = message.channel;
+            dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"7.jpg")
+            await message.channel.send(file=file)
             return None
         if message.content == "!리브":
-            channel = message.channel;
+            dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"8.jpg")
-            return None
-        if message.content == "!크래커":
-            channel = message.channel;
-            file=discord.File(dirctory+"5.jpg")
+            await message.channel.send(file=file)
             return None
         if message.content == "창규":
-            channel = message.channel;
+            dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"4.jpg")
+            await message.channel.send(file=file)
             return None
         if "흐뭇 " in message.content:
-            channel = message.channel;
+            dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"9.jpg")
+            await message.channel.send(file=file)
             return None
         if "사딸라 " in message.content:
-            channel = message.channel;
+            dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"12.jpg")
+            await message.channel.send(file=file)
             return None
         if message.content == "!햄울찜":
-            channel = message.channel;
+            dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"10.jpg")
+            await message.channel.send(file=file)
             return None
         global ii
         global count
