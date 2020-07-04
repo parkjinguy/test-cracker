@@ -48,16 +48,15 @@ class chatbot(discord.Client):
         if message.content == "과자":
             channel = message.channel;
             msg = "<@{}>".format("#9522")
-            await channel.send(msg)
-            await channel.send("호출")
+            await client.send_message(channel, "<@creake">")
             return None
         if message.content == "!도움말":
             if message.author.dm_channel:
-                await message.author.dm_channel.send("명령어 :  !아잇, 과자, !냥이, !안녕, !팀설정, !팀결과, !패치로그")
+                await message.author.dm_channel.send("명령어 :  !아잇, 과자, !냥이, !안녕, !팀설정, !팀결과, !패치로그, 모름, 사딸라, !레드, !크래커, !창규, 흐뭇, !냥대노, !냥이월급")
                 await message.author.dm_channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다) ")
             elif message.author.dm_channel is None:
                 channel = await message.author.create_dm()#dm채널 없으면 추가후 전송
-                await channel.send("명령어 : !아잇, 과자, !냥이, !안녕, !팀설정, !팀결과, !패치로그")
+                await channel.send("명령어 : !아잇, 과자, !냥이, !안녕, !팀설정, !팀결과, !패치로그, 모름, 사딸라, !레드, !크래커, !창규, 흐뭇, !냥대노, !냥이월급")
                 await channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다)")
             return None
         if message.content == "!패치로그":
@@ -133,7 +132,23 @@ class chatbot(discord.Client):
             file=discord.File(dirctory+"12.jpg")
             await message.channel.send(file=file)
             return None
+        if "모름" in message.content:
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"13.jpg")
+            await message.channel.send(file=file)
+            return None
+                                    
         if message.content == "!햄울찜":
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"10.jpg")
+            await message.channel.send(file=file)
+            return None
+        if message.content == "!냥대노":
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"16.jpg")
+            await message.channel.send(file=file)
+            return None
+        if message.content == "!냥이월급":
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"10.jpg")
             await message.channel.send(file=file)
