@@ -87,7 +87,7 @@ class chatbot(discord.Client):
          bad[] = ["ㅅㅂ","시발","씨발"]
          for i in bad: 
             if i in message_contant: 
-               await message.channel.send('욕설 검지검지') 
+               await channel.send('욕설 금지') 
                await message.delete()
 
         #사진 
