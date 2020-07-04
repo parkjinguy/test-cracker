@@ -68,8 +68,9 @@ class chatbot(discord.Client):
                 channel = await message.author.create_dm()
                 await channel.send("DM 채널이 없어서 만들고 보냈어요!")
             return None;
-        if message.content.startswith("!도움말"): # 만약, 채팅이 "!도움말"로 >>시작<< 한다면,
-            await message.channel.send("현재 명령어 설명을 원하나요?")
+        if "도움말" in message:
+            channel = message.channel;
+            await channel.send("")
         #사진 
         if message.content == "!아잇":
             dirctory = os.path.dirname(__file__)
