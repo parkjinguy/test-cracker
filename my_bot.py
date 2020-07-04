@@ -48,7 +48,7 @@ class chatbot(discord.Client):
         if message.content == "과자":
             channel = message.channel;
             msg = "<@{}>".format("#9522")
-            await client.send_message(channel, "<@creake">)
+            await client.send_message(channel, "<@creake>")
             return None
         if message.content == "!도움말":
             if message.author.dm_channel:
