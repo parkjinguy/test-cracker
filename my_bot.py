@@ -81,7 +81,7 @@ class chatbot(discord.Client):
             return None;
         if message.content == "!냥이":
             channel = message.channel;
-            await channel.send("!!!!")
+            await channel.send("언제와!!!")
             return None;
         # 서버에 멤버가 들어왔을 때 수행 될 이벤트
     async def on_member_join(self, member):
