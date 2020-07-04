@@ -92,12 +92,19 @@ class chatbot(discord.Client):
             channel = message.channel;
             await channel.send("언제와!!!")
             return None;
+         
          #짝수 인원 입력시 2개팀으로 나눈다
         if "!사다리 " in message.content:
             global count
             count=0
-            print("in")
+            channel = message.channel
             arr_str = str(message.content).split(" ")
+            if len(arr_str)%2 == 1:
+                await channel.send("!결과를 입력하여 결과를 확인하세요")
+            else:
+                await channel.send("홀수 입니다 한명을 추가하세요")
+                ii=1
+                return None
             for i in arr_str:
                 tmp.append(i)
                 count=count+1
@@ -111,7 +118,6 @@ class chatbot(discord.Client):
             for a in chek:
                 tmpt.append(tmp[a])
             tmm=count//2
-            print(tmm)
             for c in range(0,tmm):
                 result1.append(tmpt[c])
             for s in range(tmm,tmm+tmm):
@@ -126,6 +132,7 @@ class chatbot(discord.Client):
             await channel.send(shw1)
             await channel.send(shw2)
             return None
+         
         # 서버에 멤버가 들어왔을 때 수행 될 이벤트
     async def on_member_join(self, member):
         msg = "<@{}>님이 서버에 들어오셨어요. 환영합니다.".format(str(member.id))
