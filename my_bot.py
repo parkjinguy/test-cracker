@@ -83,13 +83,13 @@ class chatbot(discord.Client):
             await channel.send("")
             return None
         mess = message.content
-        tmp = ["씨발","ㅅㅂ","병신","좆까"]
+        tmp = ["씨발","ㅅㅂ","병신","좆까","니얼굴","니 얼굴"]
         for i in tmp:
             bad = mess.find(i)
             print(bad)
             if bad == 0:
                 await message.channel.send("욕하지 마세요")
-                await message.delete()
+                #await message.delete()
         #사진 
         if message.content == "!아잇":
             dirctory = os.path.dirname(__file__)
