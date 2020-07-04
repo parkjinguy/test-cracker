@@ -72,7 +72,17 @@ class chatbot(discord.Client):
         if "스뜐끼" in message.content:
             channel = message.channel;
             await channel.send("스뜐끼!!!!")
-                
+            return None;
+        if "도움말" in message.content:
+            channel = message.channel;
+            await channel.send("명령어")
+            await channel.send("!아잇")
+            await channel.send("과자")
+            await channel.send("!냥이")
+            await channel.send("!안녕")
+            await channel.send("스뜐끼")
+            await channel.send("")
+            return None;
         #사진 
         if message.content == "!아잇":
             dirctory = os.path.dirname(__file__)
