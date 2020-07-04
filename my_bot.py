@@ -80,9 +80,8 @@ class chatbot(discord.Client):
             await message.channel.send(file=file)
             return None;
         if message.content == "!냥이":
-            #dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"냥이.jpg")
-            await message.channel.send(file=file)
+            channel = message.channel;
+            await channel.send("!!!!")
             return None;
         # 서버에 멤버가 들어왔을 때 수행 될 이벤트
     async def on_member_join(self, member):
