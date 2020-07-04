@@ -4,7 +4,6 @@ import discord
 import os
 
 class chatbot(discord.Client):
-   tm[] = ["씨발","ㅅㅂ"]
     # 프로그램이 처음 실행되었을 때 초기 구성
     async def on_ready(self):
         # 상태 메시지 설정
@@ -70,11 +69,11 @@ class chatbot(discord.Client):
                 await channel.send("DM 채널이 없어서 만들고 보냈어요!")
             return None
         if "스뜐끼" in message.content:
-            channel = message.channel;
+            channel = message.channel
             await channel.send("스뜐끼!!!!")
             return None
         if "도움말" in message.content:
-            channel = message.channel;
+            channel = message.channel
             await channel.send("명령어")
             await channel.send("!아잇")
             await channel.send("과자")
@@ -83,12 +82,10 @@ class chatbot(discord.Client):
             await channel.send("스뜐끼")
             await channel.send("")
             return None
-         for i in tm:
-            if i in message.content:
-               channel = message.channel;
-               await channel.send("욕설은 ")
+        if "씨발" in message.content:
+            channel = message.channel
+            await channel.send("욕설은 ㄴㄴ")
             return None
-
 
         #사진 
         if message.content == "!아잇":
