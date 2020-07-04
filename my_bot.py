@@ -4,7 +4,7 @@ import discord
 import os
 
 class chatbot(discord.Client):
-   
+   tm[] = ["씨발","ㅅㅂ"]
     # 프로그램이 처음 실행되었을 때 초기 구성
     async def on_ready(self):
         # 상태 메시지 설정
@@ -26,53 +26,53 @@ class chatbot(discord.Client):
         # message.content = message의 내용
         if message.content == "!바보":
             # 현재 채널을 받아옴
-            channel = message.channel;
+            channel = message.channel
             # 답변 내용 구성
             msg = "너도 바보"
             # msg에 지정된 내용대로 메시지를 전송
-            await channel.send(msg);
+            await channel.send(msg)
             return None;
         if message.content == "!안녕":
             # 현재 채널을 받아옴
-            channel = message.channel;
+            channel = message.channel
             # 답변 내용 구성
             msg = "연습중인 스뜐기입니다."
             # msg에 지정된 내용대로 메시지를 전송
-            await channel.send(msg);
-            return None;
+            await channel.send(msg)
+            return None
         if message.content == "!과자":
             # 현재 채널을 받아옴
-            channel = message.channel;
+            channel = message.channel
             # 답변 내용 구성
-            msg = "과자";
+            msg = "과자"
             # msg에 지정된 내용대로 메시지를 전송
-            await channel.send(msg);
+            await channel.send(msg)
             return None
         if message.content == "!창규":
             # 현재 채널을 받아옴
-            channel = message.channel;
+            channel = message.channel
             # 답변 내용 구성
-            msg = "하이";
+            msg = "하이"
             # msg에 지정된 내용대로 메시지를 전송
-            await channel.send(msg);
+            await channel.send(msg)
             return None
         #메시지 해당 사람 태그 호출
         if message.content == "과자":
             channel = message.channel;
-            msg = "<@{}>".format(message.author.id);
-            await channel.send(msg);
-            return None;
+            msg = "<@{}>".format(message.author.id)
+            await channel.send(msg)
+            return None
         if message.content == "!설명":
             if message.author.dm_channel:
                 await message.author.dm_channel.send("DM 채널이 있어서 그냥 보냈어요!")
             elif message.author.dm_channel is None:
                 channel = await message.author.create_dm()
                 await channel.send("DM 채널이 없어서 만들고 보냈어요!")
-            return None;
+            return None
         if "스뜐끼" in message.content:
             channel = message.channel;
             await channel.send("스뜐끼!!!!")
-            return None;
+            return None
         if "도움말" in message.content:
             channel = message.channel;
             await channel.send("명령어")
@@ -82,13 +82,12 @@ class chatbot(discord.Client):
             await channel.send("!안녕")
             await channel.send("스뜐끼")
             await channel.send("")
-            return None;
-         tm[] = ["씨발","ㅅㅂ"]
+            return None
          for i in tm:
             if i in message.content:
                channel = message.channel;
                await channel.send("욕설은 ")
-            return None;
+            return None
 
 
         #사진 
