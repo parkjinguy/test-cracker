@@ -92,6 +92,7 @@ class chatbot(discord.Client):
             await message.channel.send(file=file)
             return None
         if message.content == "!냥이":
+            channel = message.channel
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"3.jpg")
             await message.channel.send(file=file)
@@ -117,17 +118,17 @@ class chatbot(discord.Client):
             file=discord.File(dirctory+"8.jpg")
             await message.channel.send(file=file)
             return None
-        if message.content == "창규":
+        if message.content == "!창규":
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"4.jpg")
             await message.channel.send(file=file)
             return None
-        if "흐뭇 " in message.content:
+        if "흐뭇" in message.content:
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"9.jpg")
             await message.channel.send(file=file)
             return None
-        if "사딸라 " in message.content:
+        if "사딸라" in message.content:
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"12.jpg")
             await message.channel.send(file=file)
