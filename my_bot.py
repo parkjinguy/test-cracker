@@ -124,6 +124,10 @@ class chatbot(discord.Client):
             channel = message.channel;
             file=discord.File(dirctory+"9.jpg")
             return None
+        if message.content == "!햄울찜":
+            channel = message.channel;
+            file=discord.File(dirctory+"10.jpg")
+            return None
         global ii
         global count
         if "!사다리 " in message.content:
@@ -141,11 +145,7 @@ class chatbot(discord.Client):
                 tmp.append(i)
                 count=count+1
             return None
-        if message.content == "!햄울찜":
-            channel = message.channel;
-            await channel.send("햄찌를 썰어넣은 맛있는 햄울찜")
-            return None
-        
+
         if message.content == "!결과":
             channel = message.channel
             if ii == 0:
