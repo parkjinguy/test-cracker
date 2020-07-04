@@ -69,6 +69,17 @@ class chatbot(discord.Client):
                 await channel.send("명령어:!아잇,과자,!냥이,!안녕,!팀설정,!팀결과")
                 await channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다)")
             return None
+        if message.content == "!패치로그":
+            if message.author.dm_channel:
+                await message.author.dm_channel.send("2020-07-03 스뜐끼봇이 추가되었습니다.")
+                await message.author.dm_channel.send("2020-07-04 자동 팀설정이 추가되었습니다")
+                await message.author.dm_channel.send("2020-07-04 스뜐끼 답변 기능이 제거되었습니다.")
+            elif message.author.dm_channel is None:
+                channel = await message.author.create_dm()#dm채널 없으면 추가후 전송
+                await channel.send("2020-07-03 스뜐끼봇이 추가되었습니다.")
+                await channel.send("2020-07-04 자동 팀설정이 추가되었습니다")
+                await channel.send("2020-07-04 스뜐끼 답변 기능이 제거되었습니다.")
+            return None
         #욕 필터
         #mess = message.content
         #tmp = ["씨발","ㅅㅂ","시발","병신","좆까","니얼굴","니 얼굴"]
