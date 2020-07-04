@@ -63,11 +63,11 @@ class chatbot(discord.Client):
         if message.content == "!도움말":
             if message.author.dm_channel:
                 await message.author.dm_channel.send("명령어:!아잇,과자,!냥이,!안녕,!팀설정,!팀결과")
-                await message.author.dm_channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다")
+                await message.author.dm_channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다) ")
             elif message.author.dm_channel is None:
                 channel = await message.author.create_dm()#dm채널 없으면 추가후 전송
                 await channel.send("명령어:!아잇,과자,!냥이,!안녕,!팀설정,!팀결과")
-                await channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다")
+                await channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다)")
             return None
         #욕 필터
         #mess = message.content
