@@ -10,7 +10,6 @@ chek=[]
 result1=[]
 result2=[]
 class chatbot(discord.Client):
-   
     # 프로그램이 처음 실행되었을 때 초기 구성
     async def on_ready(self):
         # 상태 메시지 설정
@@ -23,7 +22,6 @@ class chatbot(discord.Client):
 
         # 준비가 완료되면 콘솔 창에 "READY!"라고 표시
         print("READY")
-
     # 봇에 메시지가 오면 수행 될 액션
     async def on_message(self, message):
         # SENDER가 BOT일 경우 반응을 하지 않도록 한다.
@@ -79,20 +77,20 @@ class chatbot(discord.Client):
                 #await message.channel.send("욕하지 마세요")
                 #await message.delete() 현재 관리자로 인해 비활성화
         #사진 
-        if message.content == "!아잇" or message.content == "!아잇!":
+        if message.content == "!아잇":
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"11.jpg")
             await message.channel.send(file=file)
-            return None;
+            return None
         if message.content == "!냥이":
             channel = message.channel;
             await channel.send("언제와!!!")
-            return None;
-         
-         #짝수 인원 입력시 2개팀으로 나눈다
+            return None
+        global ii
+        global count
         if "!사다리 " in message.content:
-            global count
             count=0
+            ii=0
             channel = message.channel
             arr_str = str(message.content).split(" ")
             if len(arr_str)%2 == 1:
@@ -106,40 +104,42 @@ class chatbot(discord.Client):
                 count=count+1
             return None
         if message.content == "!결과":
-            while len(chek) != len(tmp)-1:
-                couna = random.randrange(1,count)
-                if couna not in chek:
-                    chek.append(couna)
-                    print(couna)
-            for a in chek:
-                tmpt.append(tmp[a])
-            tmm=count//2
-            for c in range(0,tmm):
-                result1.append(tmpt[c])
-            for s in range(tmm,tmm+tmm):
-                result2.append(tmpt[s])
-            shw1=""
-            shw2=""
-            for a1 in result1:
-                shw1=shw1+" "+a1
-            for a2 in result2:
-                shw2=shw2+" "+a2
             channel = message.channel
-            await channel.send(shw1)
-            await channel.send(shw2)
+            if ii == 0:
+                while len(chek) != len(tmp)-1:
+                    print(count)
+                    if count == 0:
+                        await channel.send("!팀설정을 해주세요")
+                        return None
+                    couna = random.randrange(1,count)
+                    if couna not in chek:
+                        chek.append(couna)
+                        print(couna)
+                for a in chek:
+                    tmpt.append(tmp[a])
+                tmm=count//2
+                print(tmm)
+                for c in range(0,tmm):
+                    result1.append(tmpt[c])
+                for s in range(tmm,tmm+tmm):
+                    result2.append(tmpt[s])
+                shw1=""
+                shw2=""
+                for a1 in result1:
+                    shw1=shw1+" "+a1
+                for a2 in result2:
+                    shw2=shw2+" "+a2
+                await channel.send(shw1)
+                await channel.send(shw2)
+            else:
+                await channel.send("한명을 추가해서 다시 해주세요")
+            tmp.clear()
+            tmpt.clear()
+            chek.clear()
+            result1.clear()
+            result2.clear()
+            count=0
             return None
-         
-        # 서버에 멤버가 들어왔을 때 수행 될 이벤트
-    async def on_member_join(self, member):
-        msg = "<@{}>님이 서버에 들어오셨어요. 환영합니다.".format(str(member.id))
-        await find_first_channel(member.guild.text_channels).send(msg)
-        return None
-
-    # 사버에 멤버가 나갔을 때 수행 될 이벤트
-    async def on_member_remove(self, member):
-        msg = "<@{}>님이 서버에서 나가거나 추방되었습니다.".format(str(member.id))
-        await find_first_channel(member.guild.text_channels).send(msg)
-        return None
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
 if __name__ == "__main__":
