@@ -52,11 +52,13 @@ class chatbot(discord.Client):
             return None'''
         if message.content == "!도움말":
             if message.author.dm_channel:
-                await message.author.dm_channel.send("명령어 :  !아잇, !냥이, !안녕, !팀설정, !팀결과, !패치로그, 모름, 사딸라, !레드, !크래커, !창규, 흐뭇, !냥대노,\n !냥이월급, !보리, !리브, !햄울찜, 기분좋아")
+                await message.author.dm_channel.send("명령어 :  !아잇, !냥이, !안녕, !팀설정, !팀결과, !패치로그, 모름, 사딸라, !레드, !크래커, !창규, 흐뭇, !냥대노,")
+                await message.author.dm_channel.send(" !냥이월급, !보리, !리브, !햄울찜, 기분좋아, !초코, !여긴 따뜻해")
                 await message.author.dm_channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다.) ")
             elif message.author.dm_channel is None:
                 channel = await message.author.create_dm()#dm채널 없으면 추가후 전송
-                await channel.send("명령어 : !아잇, !냥이, !안녕, !팀설정, !팀결과, !패치로그, 모름, 사딸라, !레드, !크래커, !창규, 흐뭇, !냥대노,\n !냥이월급 !리, !리브, !햄울찜, 기분좋아")
+                await channel.send("명령어 : !아잇, !냥이, !안녕, !팀설정, !팀결과, !패치로그, 모름, 사딸라, !레드, !크래커, !창규, 흐뭇, !냥대노,")
+                await channel.send(" !냥이월급 !리, !리브, !햄울찜, 기분좋아 !초코, !여긴 따뜻해")
                 await channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다.)")
             return None
         if message.content == "!패치로그":
@@ -65,12 +67,14 @@ class chatbot(discord.Client):
                 await message.author.dm_channel.send("2020-07-04 자동 팀설정이 추가되었습니다.")
                 await message.author.dm_channel.send("2020-07-04 스뜐끼 답변 기능이 제거되었습니다.")
                 await message.author.dm_channel.send("2020-07-05 흐뭇, !냥대노, !냥이월급, 모름, 사딸라, !레드, !크래커, !창규, !보리, !리브, !햄울찜, 기분좋아 등이 추가되었습니다.")
+                await message.author.dm_channel.send("2020-07-05 !초코, !여긴 따뜻해 등이 추가되었습니다.")
             elif message.author.dm_channel is None:
                 channel = await message.author.create_dm()#dm채널 없으면 추가후 전송
                 await channel.send("2020-07-03 스뜐끼봇이 추가되었습니다.")
                 await channel.send("2020-07-04 자동 팀설정이 추가되었습니다")
                 await channel.send("2020-07-04 스뜐끼 답변 기능이 제거되었습니다.")
                 await channel.send("2020-07-05 흐뭇, !냥대노, !냥이월급, 모름, 사딸라, !레드, !크래커, !창규, !보리, !리브, !햄울찜, 기분좋아 등이 추가되었습니다.")
+                await channel.send("2020-07-05 !초코, !여긴 따뜻해 등이 추가되었습니다.")
             return None
         #욕 필터
         #mess = message.content
@@ -157,6 +161,16 @@ class chatbot(discord.Client):
         if message.content == "!냥이월급":
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"15.jpg")
+            await message.channel.send(file=file)
+            return None
+        if message.content == "!초코":
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"17.jpg")
+            await message.channel.send(file=file)
+            return None
+        if message.content == "!여긴 따뜻해":
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"18.jpg")
             await message.channel.send(file=file)
             return None
         global ii
