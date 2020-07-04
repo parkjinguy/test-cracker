@@ -137,7 +137,11 @@ class chatbot(discord.Client):
             file=discord.File(dirctory+"13.jpg")
             await message.channel.send(file=file)
             return None
-                                    
+        if "기분좋아" in message.content:
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"14.jpg")
+            await message.channel.send(file=file)
+            return None                          
         if message.content == "!햄울찜":
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"10.jpg")
@@ -150,7 +154,7 @@ class chatbot(discord.Client):
             return None
         if message.content == "!냥이월급":
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"10.jpg")
+            file=discord.File(dirctory+"15.jpg")
             await message.channel.send(file=file)
             return None
         global ii
