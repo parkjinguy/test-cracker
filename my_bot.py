@@ -80,14 +80,7 @@ class chatbot(discord.Client):
         msg = "<@{}>님이 서버에서 나가거나 추방되었습니다.".format(str(member.id))
         await find_first_channel(member.guild.text_channels).send(msg)
         return None
-    async def on_message(message):
-        message_content = message.content
-        bad = message_content.find("씨발")
-        print(bad)
-        if bad >= 0:
-            await message.channel.send("바른말 고운말을 사용합시다.")
-            await message.delete()
-        await bot.process_commands(message)
+
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
 if __name__ == "__main__":
     # 객체를 생성
