@@ -249,8 +249,11 @@ class chatbot(discord.Client):
         #투표
         
         if "!투표 " in message.content:
+            channel = message.channel
             arr_str = str(message.content).split(" ")
             topo.append(arr_str[1])
+            await channel.send("현재 "+topo[1]+"의 투표가 추가되었습니다.")
+            await channel.send("!찬성, !반대를 해주세요")
             
         if message.content == "!찬성":
             channel = message.channel
@@ -287,6 +290,13 @@ class chatbot(discord.Client):
                         return None
             except:
                 await channel.send("진행중인 투표가 없습니다.")
+        if message.content == "!투표 종료":
+            channel = message.channel
+            await channel.send("투표가 종료되었습니다.")
+            topo.clear()
+            topo1.clear()
+            topo2.clear()
+            
         if message.content == "!투표 결과":
             channel = message.channel
             if len(topo1) > len(topo2):
