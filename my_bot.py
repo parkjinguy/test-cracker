@@ -68,21 +68,18 @@ class chatbot(discord.Client):
                 await channel.send(aa)
             return None
         if message.content == "!패치로그":
+            aa="2020-07-03 스뜐끼봇이 추가되었습니다.\n"
+            aa="2020-07-04 자동 팀설정이 추가되었습니다.\n"
+            aa="2020-07-04 스뜐끼 답변 기능이 제거되었습니다.\n"
+            aa="2020-07-05 흐뭇, !냥대노, !냥이월급, 모름, 사딸라, !레드, !크래커, !창규, !보리, !리브, !햄울찜, 기분좋아 등이 추가되었습니다.\n"
+            aa="2020-07-05 !초코, !여긴 따뜻해 등이 추가되었습니다.\n"
+            aa="2020-07-05 !도라이, !나루토는 전설이다.\n"
+            aa="2020-07-06 !투표 기능이 추가되었습니다.\n"
             if message.author.dm_channel:
-                await message.author.dm_channel.send("2020-07-03 스뜐끼봇이 추가되었습니다.")
-                await message.author.dm_channel.send("2020-07-04 자동 팀설정이 추가되었습니다.")
-                await message.author.dm_channel.send("2020-07-04 스뜐끼 답변 기능이 제거되었습니다.")
-                await message.author.dm_channel.send("2020-07-05 흐뭇, !냥대노, !냥이월급, 모름, 사딸라, !레드, !크래커, !창규, !보리, !리브, !햄울찜, 기분좋아 등이 추가되었습니다.")
-                await message.author.dm_channel.send("2020-07-05 !초코, !여긴 따뜻해 등이 추가되었습니다.")
-                await message.author.dm_channel.send("2020-07-05 !도라이, !나루토는 전설이다.")
+                await message.author.dm_channel.send(aa)
             elif message.author.dm_channel is None:
                 channel = await message.author.create_dm()#dm채널 없으면 추가후 전송
-                await channel.send("2020-07-03 스뜐끼봇이 추가되었습니다.")
-                await channel.send("2020-07-04 자동 팀설정이 추가되었습니다")
-                await channel.send("2020-07-04 스뜐끼 답변 기능이 제거되었습니다.")
-                await channel.send("2020-07-05 흐뭇, !냥대노, !냥이월급, 모름, 사딸라, !레드, !크래커, !창규, !보리, !리브, !햄울찜, 기분좋아 등이 추가되었습니다.")
-                await channel.send("2020-07-05 !초코, !여긴 따뜻해 등이 추가되었습니다.")
-                await channel.send("2020-07-05 !도라이, !나루토는 전설이다.")
+                await channel.send(aa)
             return None
         #욕 필터
         #mess = message.content
