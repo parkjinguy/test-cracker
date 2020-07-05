@@ -261,45 +261,57 @@ class chatbot(discord.Client):
             
         if message.content == "!찬성":
             channel = message.channel
+            ac=0
             try:
                 for a in topo:
+                    print("ff")
                     for c in topo2:
+                        print("ff")
                         for i in topo1:
                             if i == message.author.id:
                                 await channel.send("중복참여입니다.")
                                 return None
-                        topo1.append(message.author.id)
-                        return None
                     for i in topo1:
                             if i == message.author.id:
                                 await channel.send("중복참여입니다.")
                                 return None
-                            topo1.append(message.author.id)
-                            return None
-                    topo1.append(message.author.id)
-                    return None
+                    for i in topo2:
+                            if i == message.author.id:
+                                await channel.send("중복참여입니다.")
+                                return None
+                    if ac == 0:
+                        print("sa")
+                        topo1.append(message.author.id)
+                        return None
             except:
                 await channel.send("진행중인 투표가 없습니다.")
 
         if message.content == "!반대":
             channel = message.channel
+            ac=0
             try:
                 for a in topo:
+                    print("ff")
                     for c in topo1:
+                        print("dd")
                         for i in topo2:
                             if i == message.author.id:
                                 await channel.send("중복참여입니다.")
                                 return None
-                        topo2.append(message.author.id)
-                        return None
+                            print("ss")
+                    for i in topo1:
+                            if i == message.author.id:
+                                await channel.send("중복참여입니다.")
+                                return None
                     for i in topo2:
                             if i == message.author.id:
-                                await channe2.send("중복참여입니다.")
+                                await channel.send("중복참여입니다.")
                                 return None
-                            topo2.append(message.author.id)
-                            return None
-                    topo2.append(message.author.id)
-                    return None
+                    if ac == 0:
+                        print("fs")
+                        topo2.append(message.author.id)
+                        return None
+                    
             except:
                 await channel.send("진행중인 투표가 없습니다.")
         if message.content == "!투표 종료":
@@ -317,6 +329,9 @@ class chatbot(discord.Client):
                 await channel.send(tm1)
             else:
                 tm1=topo[0]+"의 결과는 반대이며 총 "+str(len(topo1))+"명이 투표했습니다."
+                await channel.send(tm1)
+            else:
+                tm1=topo[0]+"의 결과는 동점이며 총 "+str(len(topo1))+"명이 투표했습니다."
                 await channel.send(tm1)
             topo.clear()
             topo1.clear()
