@@ -327,11 +327,11 @@ class chatbot(discord.Client):
                 print(topo[0])
                 tm1=topo[0]+"의 결과는 찬성이며 총 "+str(len(topo1))+"명이 투표했습니다."
                 await channel.send(tm1)
-            else:
+            elif len(topo2) > len(topo1):
                 tm1=topo[0]+"의 결과는 반대이며 총 "+str(len(topo1))+"명이 투표했습니다."
                 await channel.send(tm1)
             else:
-                tm1=topo[0]+"의 결과는 동점이며 총 "+str(len(topo1))+"명이 투표했습니다."
+                tm1=topo[0]+"의 결과는 동점이며 총 "+str(len(topo1)+len(topo2))+"명이 투표했습니다."
                 await channel.send(tm1)
             topo.clear()
             topo1.clear()
