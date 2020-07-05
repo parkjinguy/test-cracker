@@ -3,12 +3,17 @@
 import discord
 import os
 import random
-
+#팀나누기
 tmp=[]
 tmpt=[]
 chek=[]
 result1=[]
 result2=[]
+#투표
+topo=[]
+topo1=[]
+topo2=[]
+topo3=[]
 class chatbot(discord.Client):
     # 프로그램이 처음 실행되었을 때 초기 구성
     async def on_ready(self):
@@ -241,10 +246,56 @@ class chatbot(discord.Client):
             count=0
             return None
         #투표
-        global topo[]
-        global topo1[]
-        global topo2[]
-        global topo3[]
+        #투표
+        
+        if "!투표 " in message.content:
+            arr_str = str(message.content).split(" ")
+            topo.append(arr_str[1])
+            
+        if message.content == "!찬성":
+            channel = message.channel
+            print("ff")
+            try:
+                for a in topo:
+                    for c in topo2:
+                        for i in topo1:
+                            print(i)
+                            if i == message.author.id:
+                                await channel.send("중복참여입니다.")
+                                print("dd")
+                                return None
+                        topo1.append(message.author.id)
+                        print("ss")
+                        return None
+            except:
+                await channel.send("진행중인 투표가 없습니다.")
+
+        if message.content == "!반대":
+            channel = message.channel
+            print("ff")
+            try:
+                for a in topo:
+                    for c in topo1:
+                        for i in topo2:
+                            print(i)
+                            if i == message.author.id:
+                                await channel.send("중복참여입니다.")
+                                print("dd")
+                                return None
+                        topo2.append(message.author.id)
+                        print("ss")
+                        return None
+            except:
+                await channel.send("진행중인 투표가 없습니다.")
+        if message.content == "!투표 결과":
+            channel = message.channel
+            if len(topo1) > len(topo2):
+                await channel.send(top[1]+"의 결과는 찬성이며 총 "+len(topo1)+"입니다.")
+            else:
+                await channel.send(top[1]+"의 결과는 반대이며 총 "+len(topo2)+"입니다.")
+            topo.clear()
+            topo1.clear()
+            topo2.clear()
         
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
