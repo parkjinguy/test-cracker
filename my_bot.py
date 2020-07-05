@@ -88,7 +88,7 @@ class chatbot(discord.Client):
                 #await message.delete() 현재 관리자로 인해 비활성화
         if message.content == "!도라이":
             channel = message.channel
-            await channel.send("!!!")
+            await channel.send("배신자!!!")
             return None
         #사진 
         if message.content == "!아잇":
