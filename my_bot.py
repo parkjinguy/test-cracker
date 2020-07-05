@@ -183,6 +183,8 @@ class chatbot(discord.Client):
             file=discord.File(dirctory+"18.jpg")
             await message.channel.send(file=file)
             return None
+        
+        #기능 부분
         global ii
         global count
         if "!사다리 " in message.content:
@@ -238,6 +240,12 @@ class chatbot(discord.Client):
             result2.clear()
             count=0
             return None
+        #투표
+        global topo[]
+        global topo1[]
+        global topo2[]
+        global topo3[]
+        
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
 if __name__ == "__main__":
