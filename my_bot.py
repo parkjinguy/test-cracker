@@ -58,17 +58,17 @@ class chatbot(discord.Client):
         if message.content == "!도움말":
             if message.author.dm_channel:
                 await message.author.dm_channel.send("명령어 :  !아잇, !냥이, !안녕, !팀설정, !팀결과, !패치로그, 모름, 사딸라, !레드, !크래커, !창규, 흐뭇, !냥대노,")
-                await message.author.dm_channel.send(" !냥이월급, !보리, !리브, !햄울찜, 기분좋아, !초코, !여긴 따뜻해, !도라이, !나루토는 전설이다, !투표, !결과, !찬성,")
+                await message.author.dm_channel.send(" !냥이월급, !보리, !리브, !햄울찜, 기분좋아, !초코, !여긴 따뜻해, !도라이, !나루토는 전설이다, !투표, !투표결과, !찬성,")
                 await message.author.dm_channel.send(" !반대, !투표종료")
                 await message.author.dm_channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다.) ")
-                await message.author.dm_channel.send("!투표설정은 !투표 투표내용 하면 투표가 시작되며 !찬성, !반대로 투표를 합니다. ")
+                await message.author.dm_channel.send("!투표설정은 !투표 투표내용 하면 투표가 시작되며 !찬성, !반대로 투표를 하며 !투표결과로 결과를 확인합니다 그리고 !투표종료를 하면 중지를 합니다 ")
             elif message.author.dm_channel is None:
                 channel = await message.author.create_dm()#dm채널 없으면 추가후 전송
                 await channel.send("명령어 : !아잇, !냥이, !안녕, !팀설정, !팀결과, !패치로그, 모름, 사딸라, !레드, !크래커, !창규, 흐뭇, !냥대노,")
-                await channel.send(" !냥이월급 !리, !리브, !햄울찜, 기분좋아 !초코, !여긴 따뜻해, !도라이, !나루토는 전설이다, !투표, !결과, !찬성,")
+                await channel.send(" !냥이월급 !리, !리브, !햄울찜, 기분좋아 !초코, !여긴 따뜻해, !도라이, !나루토는 전설이다, !투표, !투표결과, !찬성,")
                 await channel.send("  !반대, !투표종료")
                 await channel.send("!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다.)")
-                await channel.send("!투표설정은 !투표 투표내용 하면 투표가 시작되며 !찬성, !반대로 투표를 합니다. ")
+                await channel.send("!투표설정은 !투표 투표내용 하면 투표가 시작되며 !찬성, !반대로 투표를 하며 !투표결과로 결과를 확인합니다 그리고 !투표종료를 하면 중지를 합니다 ")
             return None
         if message.content == "!패치로그":
             if message.author.dm_channel:
@@ -250,7 +250,6 @@ class chatbot(discord.Client):
             count=0
             return None
         #투표
-        #투표
         
         if "!투표 " in message.content:
             channel = message.channel
@@ -301,7 +300,7 @@ class chatbot(discord.Client):
             topo1.clear()
             topo2.clear()
             
-        if message.content == "!투표 결과":
+        if message.content == "!투표결과":
             channel = message.channel
             if len(topo1) > len(topo2):
                 await channel.send(top[1]+"의 결과는 찬성이며 총 "+len(topo1)+"입니다.")
