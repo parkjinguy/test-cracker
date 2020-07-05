@@ -85,6 +85,10 @@ class chatbot(discord.Client):
             #if bad == 0:
                 #await message.channel.send("욕하지 마세요")
                 #await message.delete() 현재 관리자로 인해 비활성화
+        if message.content == "!도라이":
+            channel = message.channel
+            await channel.send("!!!")
+            return None
         #사진 
         if message.content == "!아잇":
             dirctory = os.path.dirname(__file__)
