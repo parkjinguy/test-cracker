@@ -204,6 +204,11 @@ class chatbot(discord.Client):
             file=discord.File(dirctory+"18.jpg")
             await message.channel.send(file=file)
             return None
+        if message.content == "!일해":
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"a1.gif")
+            await message.channel.send(file=file)
+            return None
         
         #기능 부분
         global ii
