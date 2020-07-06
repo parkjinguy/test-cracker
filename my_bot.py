@@ -214,6 +214,11 @@ class chatbot(discord.Client):
             file=discord.File(dirctory+"a2.jpg")
             await message.channel.send(file=file)
             return None
+        if "다이어트" == message.content:
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"a3.jpg")
+            await message.channel.send(file=file)
+            return None
         #기능 부분
         global ii
         global count
