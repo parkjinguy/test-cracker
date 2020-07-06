@@ -126,7 +126,7 @@ class chatbot(discord.Client):
         if message.content == "!냥":
             channel = message.channel
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"21.jpg")
+            file=discord.File(dirctory+"20.jpg")
             await message.channel.send(file=file)
             return None
         if message.content == "!레드":
