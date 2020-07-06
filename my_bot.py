@@ -220,15 +220,13 @@ class chatbot(discord.Client):
             await message.channel.send(file=file)
             return None
         if  message.content == "!요염":
-            channel = message.channel
-            await channel.send("언제와!!!")
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"a4.png")
+            file=discord.File(dirctory+"a4.jpg")
             await message.channel.send(file=file)
             return None
         if  message.content == "!뭘 꼬라봐":
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"a5.png")
+            file=discord.File(dirctory+"a5.jpg")
             await message.channel.send(file=file)
             return None
         #기능 부분
