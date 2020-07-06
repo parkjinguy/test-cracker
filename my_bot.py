@@ -220,6 +220,8 @@ class chatbot(discord.Client):
             await message.channel.send(file=file)
             return None
         if  message.content == "!요염":
+            channel = message.channel
+            await channel.send("언제와!!!")
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"a4.png")
             await message.channel.send(file=file)
