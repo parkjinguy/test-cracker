@@ -216,7 +216,7 @@ class chatbot(discord.Client):
             return None
         if  message.content == "다이어트":
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"a3.jpg")
+            file=discord.File(dirctory+"a3.png")
             await message.channel.send(file=file)
             return None
         #기능 부분
