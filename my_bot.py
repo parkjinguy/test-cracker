@@ -124,7 +124,6 @@ class chatbot(discord.Client):
             await message.channel.send(file=file)
             return None
         if message.content == "!냥":
-            channel = message.channel
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"20.jpg")
             await message.channel.send(file=file)
@@ -135,6 +134,8 @@ class chatbot(discord.Client):
             await message.channel.send(file=file)
             return None
         if message.content == "!잠":
+            channel = message.channel
+            await channel.send("!!!")
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"22.jpg")
             await message.channel.send(file=file)
