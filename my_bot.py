@@ -219,6 +219,16 @@ class chatbot(discord.Client):
             file=discord.File(dirctory+"a3.png")
             await message.channel.send(file=file)
             return None
+        if  message.content == "!요염":
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"a4.png")
+            await message.channel.send(file=file)
+            return None
+        if  message.content == "!뭘 꼬라봐":
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"a5.png")
+            await message.channel.send(file=file)
+            return None
         #기능 부분
         global ii
         global count
