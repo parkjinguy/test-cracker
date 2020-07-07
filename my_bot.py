@@ -58,7 +58,7 @@ class chatbot(discord.Client):
         if message.content == "!도움말":
             aa="명령어 :  !아잇, !냥이, !안녕, !팀설정, !팀결과, !패치로그 !찌릿, !잠, !일해, !레드, !크래커, !냥, !창규, !냥대노, !죄송\n"
             aa= aa+" !냥이월급날, !보리, !리브, !햄울찜, 기분좋아, !초코, !여긴 따뜻해, !도라이, !나루토는 전설이다, !투표, !투표결과, !찬성,\n"
-            aa= aa+" !반대, !투표종료, !요염, !뭘 꼬라봐, 흐믓, 모름, 사딸라, 다이어트\n"
+            aa= aa+" !반대, !투표종료, !요염, !뭘 꼬라봐, !사륜안 흐믓, 모름, 사딸라, 다이어트\n"
             aa= aa+"!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다.) \n"
             aa= aa+"!투표설정은 !투표 투표내용 하면 투표가 시작되며 !찬성, !반대로 투표를 하며 !투표결과로 결과를 확인합니다 그리고 !투표종료를 하면 중지를 합니다 "
             if message.author.dm_channel:
@@ -76,7 +76,7 @@ class chatbot(discord.Client):
             aa="2020-07-05 !도라이, !나루토는 전설이다.\n"
             aa="2020-07-06 !투표 기능이 추가되었습니다.\n"
             aa="2020-07-06 !냥, !찌릿, !잠, !일해, 다이어트 기능이 추가되었습니다.\n"
-            aa="2020-07-06 !요염, !뭘  기능이 추가되었습니다.\n"
+            aa="2020-07-06 !요염, !뭘, !사륜안 기능이 추가되었습니다.\n"
             if message.author.dm_channel:
                 await message.author.dm_channel.send(aa)
             elif message.author.dm_channel is None:
@@ -228,6 +228,11 @@ class chatbot(discord.Client):
         if  message.content == "!뭘 꼬라봐":
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"a5.jpg")
+            await message.channel.send(file=file)
+            return None
+        if  message.content == "!사륜안":
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"a6.jpg")
             await message.channel.send(file=file)
             return None
         #기능 부분
