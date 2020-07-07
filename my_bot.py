@@ -382,38 +382,7 @@ class chatbot(discord.Client):
             topo.clear()
             topo1.clear()
             topo2.clear()
-        if message.content.startswith('=가위바위보'):
-		    rsp = ["가위","바위","보"]
-		    embed = discord.Embed(title="가위바위보",description="가위바위보를 합니다 3초내로 (가위/바위/보)를 써주세요!", color=0x00aaaa)
-		    channel = message.channel
-		    msg1 = await message.channel.send(embed=embed)
-		    def check(m):
-			    return m.author == message.author and m.channel == channel
-		    try:
-			    msg2 = await client.wait_for('message', timeout=3.0, check=check)
-		    except asyncio.TimeoutError:
-			    await msg1.delete()
-			    embed = discord.Embed(title="가위바위보",description="앗 3초가 지났네요...!", color=0x00aaaa)
-			    await message.channel.send(embed=embed)
-			    return
-		    else:
-			    await msg1.delete()
-			    bot_rsp = str(random.choice(rsp))
-			    user_rsp  = str(msg2.content)
-			    answer = ""
-			    if bot_rsp == user_rsp:
-				    answer = "저는 " + bot_rsp + "을 냈고, 당신은 " + user_rsp + "을 내셨내요.\n" + "아쉽지만 비겼습니다."
-			    elif (bot_rsp == "가위" and user_rsp == "바위") or (bot_rsp == "보" and user_rsp == "가위") or (bot_rsp == "바위" and user_rsp == "보"):
-				    answer = "저는 " + bot_rsp + "을 냈고, 당신은 " + user_rsp + "을 내셨내요.\n" + "아쉽지만 제가 졌습니다."
-			    elif (bot_rsp == "바위" and user_rsp == "가위") or (bot_rsp == "가위" and user_rsp == "보") or (bot_rsp == "보" and user_rsp == "바위"):
-				    answer = "저는 " + bot_rsp + "을 냈고, 당신은 " + user_rsp + "을 내셨내요.\n" + "제가 이겼습니다!"
-			    else:
-				    embed = discord.Embed(title="가위바위보",description="앗, 가위, 바위, 보 중에서만 내셔야죠...", color=0x00aaaa)
-				    await message.channel.send(embed=embed)
-				    return
-			    embed = discord.Embed(title="가위바위보",description=answer, color=0x00aaaa)
-			    await message.channel.send(embed=embed)
-			    return
+        
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
 if __name__ == "__main__":
