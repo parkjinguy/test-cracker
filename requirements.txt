@@ -2,4 +2,3 @@ asyncio
 discord.py
 setuptools
 requests==2.8.1
-json
