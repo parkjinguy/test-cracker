@@ -4,6 +4,7 @@ import discord
 import os
 import random
 #from urllib import parse
+import requests
 import json
 #팀나누기
 tmp=[]
