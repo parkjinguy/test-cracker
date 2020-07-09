@@ -405,7 +405,6 @@ class chatbot(discord.Client):
                 "Origin": "https://developer.riotgames.com",
                 "X-Riot-Token": kie
                 }
-            await channel.send("ff")
             res = requests.get(APIURL, headers=headers)
             tmm=res.json()
             id=tmm['id']
@@ -418,13 +417,12 @@ class chatbot(discord.Client):
                 "Origin": "https://developer.riotgames.com",
                 "X-Riot-Token": "RGAPI-c799e721-25b9-48d8-8465-76a8ef141231"
                 }
-            await channel.send("ffd")
             res = requests.get(APIURL, headers=headers)
             tmm=res.json()
             ac=""
             ac="자랭\n티어 : "+repr(tmm[0]['tier'])+" "+repr(tmm[0]['rank'])+"\n 승리수 : "+repr(tmm[0]['wins']) +"\n 패배수 : "+repr(tmm[0]['losses'])+"\n"
             try:
-                ac=ac+"솔랭\n티어 : "+repr(tmm[0]['tier'])+" "+repr(tmm[0]['rank'])+"\n 승리수 : "+repr(tmm[0]['wins']) +"\n 패배수 : "+repr(tmm[0]['losses'])+"\n"
+                ac=ac+"솔랭\n티어 : "+repr(tmm[1]['tier'])+" "+repr(tmm[1]['rank'])+"\n 승리수 : "+repr(tmm[1]['wins']) +"\n 패배수 : "+repr(tmm[1]['losses'])+"\n"
             except:
                 ac=ac+'자랭없음'
             await channel.send(ac)
