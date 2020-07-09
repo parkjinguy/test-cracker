@@ -1,6 +1,6 @@
 asyncio
 discord.py
-requests
 setuptools
-urllib
-parse
+requests==2.8.1
+urllib3==1.12
+
