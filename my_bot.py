@@ -391,18 +391,46 @@ class chatbot(discord.Client):
             topo1.clear()
             topo2.clear()
             
-        if message.content == "!롤.":
+        if "!롤." in message.content:
             channel = message.channel
-            arr_str = str(message.content).split(.)
-            lol(arr_str[1]);
-        def lol(tmp):
-            channel = message.channel
-            api="RGAPI-c799e721-25b9-48d8-8465-76a8ef141231"
-            tier_url = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + tmp +'?api_key=' + api
-            req  = urllib.request.urlopen(tier_url)
-            r2 = req.readline()
-            j = json.loads(r2)
-            await channel.send(j["name"])
+            arr_str = str(message.content).split(".")
+            summonerName = arr_str[1]
+            kie="RGAPI-c799e721-25b9-48d8-8465-76a8ef141231"
+            encodingSummonerName = parse.quote(summonerName)
+            APIURL = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + encodingSummonerName
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+                "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+                "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+                "Origin": "https://developer.riotgames.com",
+                "X-Riot-Token": kie
+                }
+            res = requests.get(APIURL, headers=headers)
+            tmm=res.json()
+            id=tmm['id']
+            summonerName=id
+            encodingSummonerName = parse.quote(summonerName)
+            print(id)
+            APIURL = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/" + encodingSummonerName
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+                "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+                "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+                "Origin": "https://developer.riotgames.com",
+                "X-Riot-Token": "RGAPI-c799e721-25b9-48d8-8465-76a8ef141231"
+                }
+            res = requests.get(APIURL, headers=headers)
+            tmm=res.json()
+            global tm
+            ac=""
+            tm=[]
+            ac="자랭\n티어 : "+tmm[0]['tier']+" "+tmm[0]['rank']+"\n 승리수 : "+tmm[0]['wins'] +"\n 패배수 : "+tmm[0]['losses']+"\m"
+            try:
+                ac=ac+"솔랭\n티어 : "+tmm[0]['tier']+" "+tmm[0]['rank']+"\n 승리수 : "+tmm[0]['wins'] +"\n 패배수 : "+tmm[0]['losses']+"\m"
+            except:
+                ac=ac+'자랭없음'
+            await channel.send(ac)
+        
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
 if __name__ == "__main__":
