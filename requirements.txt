@@ -2,5 +2,5 @@ asyncio
 discord.py
 setuptools
 requests==2.8.1
-urllib3==1.12
+from urlib import pares
 
