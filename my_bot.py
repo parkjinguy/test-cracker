@@ -421,9 +421,7 @@ class chatbot(discord.Client):
                 }
             res = requests.get(APIURL, headers=headers)
             tmm=res.json()
-            global tm
             ac=""
-            tm=[]
             ac="자랭\n티어 : "+tmm[0]['tier']+" "+tmm[0]['rank']+"\n 승리수 : "+tmm[0]['wins'] +"\n 패배수 : "+tmm[0]['losses']+"\m"
             try:
                 ac=ac+"솔랭\n티어 : "+tmm[0]['tier']+" "+tmm[0]['rank']+"\n 승리수 : "+tmm[0]['wins'] +"\n 패배수 : "+tmm[0]['losses']+"\m"
