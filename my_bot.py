@@ -3,6 +3,8 @@
 import discord
 import os
 import random
+#from urllib import parse
+import urllib.parse
 import urllib.request
 import json
 #팀나누기
@@ -396,7 +398,7 @@ class chatbot(discord.Client):
             arr_str = str(message.content).split(".")
             summonerName = arr_str[1]
             kie="RGAPI-c799e721-25b9-48d8-8465-76a8ef141231"
-            encodingSummonerName = parse.quote(summonerName)
+            encodingSummonerName = urllib.parse.quote(summonerName)
             APIURL = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + encodingSummonerName
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
@@ -409,7 +411,7 @@ class chatbot(discord.Client):
             tmm=res.json()
             id=tmm['id']
             summonerName=id
-            encodingSummonerName = parse.quote(summonerName)
+            encodingSummonerName = urllib.parse.quote(summonerName)
             print(id)
             APIURL = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/" + encodingSummonerName
             headers = {
