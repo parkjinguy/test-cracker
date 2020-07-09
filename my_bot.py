@@ -3,6 +3,8 @@
 import discord
 import os
 import random
+import urllib.request
+import json
 #팀나누기
 tmp=[]
 tmpt=[]
@@ -388,7 +390,19 @@ class chatbot(discord.Client):
             topo.clear()
             topo1.clear()
             topo2.clear()
-        
+            
+        if message.content == "!롤.":
+            channel = message.channel
+            arr_str = str(message.content).split(.)
+            lol(arr_str[1]);
+        def lol(tmp):
+            channel = message.channel
+            api="RGAPI-c799e721-25b9-48d8-8465-76a8ef141231"
+            tier_url = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + tmp +'?api_key=' + api
+            req  = urllib.request.urlopen(tier_url)
+            r2 = req.readline()
+            j = json.loads(r2)
+            await channel.send(j["name"])
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
 if __name__ == "__main__":
