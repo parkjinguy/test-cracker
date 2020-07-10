@@ -83,6 +83,7 @@ class chatbot(discord.Client):
             aa="2020-07-06 !요염, !뭘, !사륜안 기능이 추가되었습니다.\n"
             aa="2020-07-08 햄울찜님의 요청으로 !크래커(수정), !경이(추가) 되었습니다.\n"
             aa="2020-07-10 cracker님의 요청으로 !롤.(추가) 되었습니다.\n"
+            aa="2020-07-11 !롤.(수정) 되었습니다.\n"
             if message.author.dm_channel:
                 await message.author.dm_channel.send(aa)
             elif message.author.dm_channel is None:
