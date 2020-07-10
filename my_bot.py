@@ -423,16 +423,8 @@ class chatbot(discord.Client):
             tmm=res.json()
             ac=""
             try:
-                if repr(tmm[0]['queueType']) in "RANKED_SOLO_5x5":
-                    ac="솔랭"
-                else:
-                    ac="자랭"
-                ac=ac+"\n티어 : "+repr(tmm[0]['tier'])+" "+repr(tmm[0]['rank'])+"\n 승리수 : "+repr(tmm[0]['wins']) +"\n 패배수 : "+repr(tmm[0]['losses'])+"\n"
-                if repr(tmm[0]['queueType']) in "RANKED_SOLO_5x5":
-                    ac=ac+"솔랭"
-                else:
-                    ac=ac+"자랭"
-                ac=ac+"\n티어 : "+repr(tmm[1]['tier'])+" "+repr(tmm[1]['rank'])+"\n 승리수 : "+repr(tmm[1]['wins']) +"\n 패배수 : "+repr(tmm[1]['losses'])+"\n"
+                ac="솔랭\n티어 : "+repr(tmm[0]['tier'])+" "+repr(tmm[0]['rank'])+"\n 승리수 : "+repr(tmm[0]['wins']) +"\n 패배수 : "+repr(tmm[0]['losses'])+"\n"
+                ac=ac+"자랭\n티어 : "+repr(tmm[1]['tier'])+" "+repr(tmm[1]['rank'])+"\n 승리수 : "+repr(tmm[1]['wins']) +"\n 패배수 : "+repr(tmm[1]['losses'])+"\n"
             except:
                 ac=ac+'랭크없음'
             await channel.send(ac)
