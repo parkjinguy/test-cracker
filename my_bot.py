@@ -398,7 +398,7 @@ class chatbot(discord.Client):
             channel = message.channel
             arr_str = str(message.content).split(".")
             summonerName = arr_str[1]
-            kie="RGAPI-6394223a-b7fb-4fe4-8115-fa2637749ae9"
+            kie="RGAPI-ef6b59d1-365b-46b1-a3c7-e9407c9a158d"
             APIURL = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + arr_str[1]
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
@@ -417,7 +417,7 @@ class chatbot(discord.Client):
                 "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
                 "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
                 "Origin": "https://developer.riotgames.com",
-                "X-Riot-Token": "RGAPI-c799e721-25b9-48d8-8465-76a8ef141231"
+                "X-Riot-Token": kie
                 }
             res = requests.get(APIURL, headers=headers)
             tmm=res.json()
