@@ -398,7 +398,7 @@ class chatbot(discord.Client):
             channel = message.channel
             arr_str = str(message.content).split(".")
             summonerName = arr_str[1]
-            kie="RGAPI-c799e721-25b9-48d8-8465-76a8ef141231"
+            kie="RGAPI-6394223a-b7fb-4fe4-8115-fa2637749ae9"
             APIURL = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + arr_str[1]
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
