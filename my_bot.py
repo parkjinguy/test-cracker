@@ -428,12 +428,12 @@ class chatbot(discord.Client):
                     ac=ac+"자랭"
                 else:
                     ac=ac+"솔랭"
-                ac=ac+"\n티어 : "+repr(tmm[0]['tier'])+" "+repr(tmm[0]['rank'])+"\n 승리수 : "+repr(tmm[0]['wins']) +"\n 패배수 : "+repr(tmm[0]['losses'])+"\n"+repr(tmm[0]['leaguePoints'])+"\n"
+                ac=ac+"\n티어 : "+repr(tmm[0]['tier'])+" "+repr(tmm[0]['rank'])+"\n 승리수 : "+repr(tmm[0]['wins']) +"\n 패배수 : "+repr(tmm[0]['losses'])+"\n점수"+repr(tmm[0]['leaguePoints'])+"\n"
                 if tmm[1]['queueType']=="RANKED_FLEX_SR":
                     ac=ac+"자랭"
                 else:
                     ac=ac+"솔랭"
-                ac=ac+"\n티어 : "+repr(tmm[1]['tier'])+" "+repr(tmm[1]['rank'])+"\n 승리수 : "+repr(tmm[1]['wins']) +"\n 패배수 : "+repr(tmm[1]['losses'])+"\n"+repr(tmm[1]['leaguePoints'])+"\n"
+                ac=ac+"\n티어 : "+repr(tmm[1]['tier'])+" "+repr(tmm[1]['rank'])+"\n 승리수 : "+repr(tmm[1]['wins']) +"\n 패배수 : "+repr(tmm[1]['losses'])+"\n점수"+repr(tmm[1]['leaguePoints'])+"\n"
             except:
                 ac=ac+'랭크없음'
             await channel.send(ac)
