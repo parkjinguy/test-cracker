@@ -453,6 +453,7 @@ class chatbot(discord.Client):
             res = requests.get(APIURL, headers=headers)
             tmm=res.json()
             id=tmm['id']
+            print(id)
             summonerName=id
             APIURL = "https://kr.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + id
             headers = {
@@ -464,9 +465,11 @@ class chatbot(discord.Client):
                 }
             res = requests.get(APIURL, headers=headers)
             tmm=res.json()
-            for i in 10:
-                ac = tmm["participants"]["summonerName"]
-                await channel.send(ac)
+            num = {0,1,2,3,4,5,6,7,8,9}
+            #print(tmm)
+            for i in num:
+                ac =ac+ tmm["participants"][i]["summonerName"]+"\n"
+            await channel.send("현재 같이 하고있는 유저는 \n"+ac)
         
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
