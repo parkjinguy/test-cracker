@@ -437,6 +437,36 @@ class chatbot(discord.Client):
             except:
                 ac=ac+'랭크없음'
             await channel.send(ac)
+        if "!최근롤." in message.content:
+            channel = message.channel
+            arr_str = str(message.content).split(".")
+            summonerName = arr_str[1]
+            kie="RGAPI-ef6b59d1-365b-46b1-a3c7-e9407c9a158d"
+            APIURL = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + arr_str[1]
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+                "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+                "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+                "Origin": "https://developer.riotgames.com",
+                "X-Riot-Token": kie
+                }
+            res = requests.get(APIURL, headers=headers)
+            tmm=res.json()
+            id=tmm['id']
+            summonerName=id
+            APIURL = "https://kr.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + id
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+                "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+                "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+                "Origin": "https://developer.riotgames.com",
+                "X-Riot-Token": kie
+                }
+            res = requests.get(APIURL, headers=headers)
+            tmm=res.json()
+            for i in 10:
+                ac = tmm["participants"]["summonerName"]
+                await channel.send(ac)
         
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
