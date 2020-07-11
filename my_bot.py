@@ -197,7 +197,7 @@ class chatbot(discord.Client):
             file=discord.File(dirctory+"16.jpg")
             await message.channel.send(file=file)
             return None
-        if message.content == "!냥이월급":
+        if "!냥이월급" in message.content:
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"15.jpg")
             await message.channel.send(file=file)
