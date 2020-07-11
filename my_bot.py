@@ -466,10 +466,14 @@ class chatbot(discord.Client):
             res = requests.get(APIURL, headers=headers)
             tmm=res.json()
             num = {0,1,2,3,4,5,6,7,8,9}
-            #print(tmm)
-            for i in num:
-                ac =ac+ tmm["participants"][i]["summonerName"]+"\n"
-            await channel.send("현재 같이 하고있는 유저는 \n"+ac)
+            ac=""
+            try:
+                #print(tmm)
+                for i in num:
+                    ac =ac+ tmm["participants"][i]["summonerName"]+"\n"
+                await channel.send("현재 같이 하고있는 유저는 \n"+ac)
+            except:
+                await channel.send("현재 검색 유저의 경기가 없습니다. \n")
         
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
