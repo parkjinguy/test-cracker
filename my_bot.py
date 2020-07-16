@@ -254,6 +254,11 @@ class chatbot(discord.Client):
             file=discord.File(dirctory+"a8.jpg")
             await message.channel.send(file=file)
             return None
+        if "!돌맹" in message.content:
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"a9.jpg")
+            await message.channel.send(file=file)
+            return None
         #기능 부분
         
         global ii
