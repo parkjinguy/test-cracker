@@ -267,7 +267,7 @@ class chatbot(discord.Client):
             return None
         if "!잘한다" in message.content:
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"a11.jpg")
+            file=discord.File(dirctory+"a11.png")
             await message.channel.send(file=file)
             return None
         #기능 부분
