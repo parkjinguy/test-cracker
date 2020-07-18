@@ -61,7 +61,7 @@ class chatbot(discord.Client):
         if message.content == "!도움말":
             aa="명령어 :  !아잇, !냥이, !안녕, !팀설정, !팀결과, !패치로그 !찌릿, !잠, !일해, !레드, !크래커, !냥, !창규, !냥대노, !죄송\n"
             aa= aa+" !냥이월급날, !보리, !리브, !햄울찜, 기분좋아, !초코, !여긴 따뜻해, !도라이, !나루토는 전설이다, !투표, !투표결과, !찬성,\n"
-            aa= aa+" !반대, !투표종료, !요염, !뭘 꼬라봐, !사륜안, !경이, !롤., !하 인생, !돌맹, 흐뭇, 모름, 사딸라, 다이어트, 할짝\n"
+            aa= aa+" !반대, !투표종료, !요염, !뭘 꼬라봐, !사륜안, !경이, !롤., !하 인생, !돌맹, !잘한다, 흐뭇, 모름, 사딸라, 다이어트, 할짝\n"
             aa= aa+"!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다.) \n"
             aa= aa+"!투표설정은 !투표 투표내용 하면 투표가 시작되며 !찬성, !반대로 투표를 하며 !투표결과로 결과를 확인합니다 그리고 !투표종료를 하면 중지를 합니다.\ "
             aa= aa+"!롤.은 .뒤에 롤닉네임을 그대로 적어주시면 잠시뒤에 자동으로 출력이됩니다."
@@ -263,6 +263,11 @@ class chatbot(discord.Client):
         if "할짝" in message.content:
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"a10.jpg")
+            await message.channel.send(file=file)
+            return None
+        if "!잘한다" in message.content:
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"a11.jpg")
             await message.channel.send(file=file)
             return None
         #기능 부분
