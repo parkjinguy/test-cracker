@@ -270,6 +270,11 @@ class chatbot(discord.Client):
             file=discord.File(dirctory+"a11.png")
             await message.channel.send(file=file)
             return None
+        if "!냥청" in message.content:
+            dirctory = os.path.dirname(__file__)
+            file=discord.File(dirctory+"a13.png")
+            await message.channel.send(file=file)
+            return None
         #기능 부분
         
         global ii
