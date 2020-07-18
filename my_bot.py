@@ -126,7 +126,7 @@ class chatbot(discord.Client):
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"3.jpg")
             await message.channel.send(file=file)
-            await channel.send("언제와!!!")
+            await channel.send("!!!")
             return None
         if "!찌릿" in message.content:
             channel = message.channel
