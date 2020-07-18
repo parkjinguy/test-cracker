@@ -125,7 +125,7 @@ class chatbot(discord.Client):
         if  message.content=="!냥이":
             channel = message.channel
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"3.jpg")
+            file=discord.File(dirctory+"a12.gif")
             await message.channel.send(file=file)
             return None
         if "!찌릿" in message.content:
