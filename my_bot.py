@@ -86,7 +86,8 @@ class chatbot(discord.Client):
             aa="2020-07-11 !롤.(수정) 되었습니다.\n"
             aa="2020-07-11 대부분 명령어가 다른 채팅과 같이 사용하게(수정) 되었습니다.\n"
             aa="2020-07-11 햄울찜님의 요청으로 !하 인생(추가) 되었습니다.\n"
-            aa="2020-07-11 크래커님의 요청으로 할짝(추가) 되었습니다.\n"
+            aa="2020-07-17 크래커님의 요청으로 할짝(추가) 되었습니다.\n"
+            aa="2020-07-18 냥이님의 요청으로 !냥이() 되었습니다.\n"
             if message.author.dm_channel:
                 await message.author.dm_channel.send(aa)
             elif message.author.dm_channel is None:
@@ -126,7 +127,6 @@ class chatbot(discord.Client):
             dirctory = os.path.dirname(__file__)
             file=discord.File(dirctory+"3.jpg")
             await message.channel.send(file=file)
-            await channel.send("!!!")
             return None
         if "!찌릿" in message.content:
             channel = message.channel
