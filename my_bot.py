@@ -123,7 +123,7 @@ class chatbot(discord.Client):
             return None
         if "생축" in message.content:
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+".jpg")
+            file=discord.File(dirctory+"happy.jpg")
             await message.channel.send(file=file)
             return None
         if "!햄프" in message.content:
