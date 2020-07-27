@@ -559,7 +559,7 @@ class chatbot(discord.Client):
             participation.append(message.author.name)
             await channel.send(message.author.name+"님 참여하였습니다.")
             return
-        if message.content == "!결과":
+        if message.content == "!참여결과":
             channel = message.channel
             try:
                 aa=""
