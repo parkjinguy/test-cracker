@@ -64,10 +64,11 @@ class chatbot(discord.Client):
             aa="명령어 :  !아잇, !냥이, !안녕, !팀설정, !팀결과, !패치로그 !찌릿, !잠, !일해, !레드, !크래커, !냥, !창규, !냥대노, !죄송\n"
             aa= aa+" !냥이월급날, !보리, !리브, !햄울찜, 기분좋아, !초코, !여긴 따뜻해, !도라이, !나루토는 전설이다, !투표, !투표결과, !찬성,\n"
             aa= aa+" !반대, !투표종료, !요염, !뭘 꼬라봐, !사륜안, !경이, !롤., !하 인생, !돌맹, !잘한다, !냥청, !글적, !짱깨, !글적\n"
-            aa= aa+" !참여, !참여결과, 흐뭇, 모름, 사딸라, 다이어트, 할짝  시무룩\n"
+            aa= aa+" !참가, !참가결과, !참가취소, 흐뭇, 모름, 사딸라, 다이어트, 할짝  시무룩\n"
             aa= aa+"!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다.) \n"
-            aa= aa+"!투표설정은 !투표 투표내용 하면 투표가 시작되며 !찬성, !반대로 투표를 하며 !투표결과로 결과를 확인합니다 그리고 !투표종료를 하면 중지를 합니다.\ "
-            aa= aa+"!롤.은 .뒤에 롤닉네임을 그대로 적어주시면 잠시뒤에 자동으로 출력이됩니다."
+            aa= aa+"!투표설정은 !투표 투표내용 하면 투표가 시작되며 !찬성, !반대로 투표를 하며 !투표결과로 결과를 확인합니다 그리고 !투표종료를 하면 중지를 합니다.\n "
+            aa= aa+"!롤.은 .뒤에 롤닉네임을 그대로 적어주시면 잠시뒤에 자동으로 출력이됩니다.\n"
+            aa= aa+"참가 여부는 !참가만 입력하면 자동 참가되고 최소는 !참가취소 결과보기는 !참가결과 이며 결과는 한번만 출력됩니다.\n"
             if message.author.dm_channel:
                 await message.author.dm_channel.send(aa)
             elif message.author.dm_channel is None:
@@ -97,7 +98,8 @@ class chatbot(discord.Client):
             aa="2020-07-21 햄찌님의 요청으로 !(추가) 되었습니다.\n"
             aa="2020-07-21 햄찌님의 요청으로 !피식(추가) 되었습니다.\n"
             aa="2020-07-23 핥짝님의 요청으로 !피식(추가) 되었습니다.\n"
-            aa="2020-07-27 크래커님의 요청으로 !참여,!참여결과(추가) 되었습니다.\n"
+            aa="2020-07-27 크래커님의 요청으로 !참여,!참여결과, !참여취소(추가) 되었습니다.\n"
+            aa="2020-07-27 크래커님의 요청으로 !참가,!참가결과, !참가취소(수정) 되었습니다.\n"
             if message.author.dm_channel:
                 await message.author.dm_channel.send(aa)
             elif message.author.dm_channel is None:
@@ -550,20 +552,29 @@ class chatbot(discord.Client):
                 await channel.send("현재 검색 유저의 경기가 없습니다. \n")
                 return
         #참여 여부
-        if message.content == "!참여":
+        if message.content == "!참가":
             channel = message.channel
             for i in participation:
                 if i == message.author.name:
-                    await channel.send("중복참여입니다.")
+                    await channel.send("중복참가입니다.")
                     return
             participation.append(message.author.name)
-            await channel.send(message.author.name+"님 참여하였습니다.")
+            await channel.send(message.author.name+"님 참가하였습니다.")
             return
-        if message.content == "!참여결과":
+        if message.content == "!참가취소":
+            channel = message.channel
+            for i in participation:
+                if i == message.author.name:
+                    participation.remove(message.author.name)
+                    await channel.send("취소되었습니다.")
+                    return
+            await channel.send("참가가자 아닙니다.")
+            return
+        if message.content == "!참가결과":
             channel = message.channel
             try:
                 aa=""
-                tm="참여원은 : "
+                tm="참가인원은 : "
                 count=0
                 res=len(participation)
                 for aa in participation:
@@ -572,10 +583,13 @@ class chatbot(discord.Client):
                         tm=tm+aa+", "
                     else:
                         tm=tm+aa
-                await channel.send(tm)
-                await channel.send("참여인원은 : "+str(count)+"명")
+                if count == 0:
+                    await channel.send("참가자가 없습니다.")
+                else:
+                    await channel.send(tm)
+                    await channel.send("참가인원은 : "+str(count)+"명")
             except:
-                await channel.send("참여자가 없습니다.")
+                await channel.send("참가자가 없습니다.")
             participation.clear()
             return
     
