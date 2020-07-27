@@ -566,6 +566,7 @@ class chatbot(discord.Client):
                 tm="참여인원은 : "
                 count=0
                 res=len(participation)
+                await channel.send(res)
                 for aa in participation:
                     count=count+1
                     if count >= 2 and count != res:
