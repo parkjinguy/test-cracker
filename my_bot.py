@@ -550,7 +550,7 @@ class chatbot(discord.Client):
                 await channel.send("현재 검색 유저의 경기가 없습니다. \n")
                 return
         #참여 여부
-        if message.count == "!참여":
+        if message.content == "!참여":
             channel = message.channel
             for i in participation:
                 if i == message.author.name:
