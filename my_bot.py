@@ -557,24 +557,27 @@ class chatbot(discord.Client):
                     await channel.send("중복참여입니다.")
                     return
             participation.append(message.author.name)
-            print(message.author.name)
+            await channel.send(message.author.name+"님 참여하였습니다.")
             return
         if message.content == "!결과":
             channel = message.channel
-            aa=""
-            tm="참여인원은 : "
-            count=0
-            res=len(participation)
-            for aa in participation:
-                count=count+1
-                if count >= 2 and count != res:
-                    tm=tm+aa+", "
-                else:
-                    tm=tm+aa
-            await channel.send(tm)
-            await channel.send(count)
-            participation.clear()
-            return
+            try:
+                aa=""
+                tm="참여인원은 : "
+                count=0
+                res=len(participation)
+                for aa in participation:
+                    count=count+1
+                    if count >= 2 and count != res:
+                        tm=tm+aa+", "
+                    else:
+                        tm=tm+aa
+                await channel.send(tm)
+                await channel.send(count)
+             except:
+                await channel.send("참여자가 없습니다.")
+             participation.clear()
+             return
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
 if __name__ == "__main__":
