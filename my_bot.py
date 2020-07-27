@@ -574,10 +574,11 @@ class chatbot(discord.Client):
                         tm=tm+aa
                 await channel.send(tm)
                 await channel.send(count)
-             except:
+            
+            except:
                 await channel.send("참여자가 없습니다.")
-             participation.clear()
-             return
+            participation.clear()
+            return
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
 if __name__ == "__main__":
