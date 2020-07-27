@@ -563,7 +563,7 @@ class chatbot(discord.Client):
             channel = message.channel
             try:
                 aa=""
-                tm="참여인원은 : "
+                tm="참여원은 : "
                 count=0
                 res=len(participation)
                 for aa in participation:
@@ -573,7 +573,7 @@ class chatbot(discord.Client):
                     else:
                         tm=tm+aa
                 await channel.send(tm)
-                await channel.send(count)
+                await channel.send("참여인원은 : "+count)
             except:
                 await channel.send("참여자가 없습니다.")
             participation.clear()
