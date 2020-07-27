@@ -325,7 +325,7 @@ class chatbot(discord.Client):
             return None
         if "!인성" in message.content:
             dirctory = os.path.dirname(__file__)
-            file=discord.File(dirctory+"a20.jpg")
+            file=discord.File(dirctory+"a21.jpg")
             await message.channel.send(file=file)
             return None
         #기능 부분
