@@ -556,7 +556,7 @@ class chatbot(discord.Client):
                 if i == message.author.name:
                     await channel.send("중복참여입니다.")
                     return
-            test.append(message.author.name)
+            participation.append(message.author.name)
             print(message.author.name)
             return
         if message.content == "!결과":
