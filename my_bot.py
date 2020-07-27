@@ -574,7 +574,6 @@ class chatbot(discord.Client):
                         tm=tm+aa
                 await channel.send(tm)
                 await channel.send(count)
-            
             except:
                 await channel.send("참여자가 없습니다.")
             participation.clear()
