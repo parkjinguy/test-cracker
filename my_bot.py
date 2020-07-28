@@ -505,7 +505,8 @@ class chatbot(discord.Client):
         #참여 여부
         if message.content == "!참가":
             channel = message.channel
-            file=open("test.txt","")
+            fi = discord.File("test.txt")
+            file=open(fi,"a")
             tmp=str(file.read()).split()
             try:
                 for i in tmp:
@@ -576,8 +577,9 @@ class chatbot(discord.Client):
             return
         if message.content == "!참가결과":
             channel = message.channel
+            fi = discord.File("test.txt")
             result="참여인원 : "
-            file=open("test.txt","r")
+            file=open(fi,"r")
             li=file.read().count("\n")
             file.close()
             file=open("test.txt.","r")
