@@ -505,7 +505,9 @@ class chatbot(discord.Client):
         #참여 여부
         if message.content == "!참가":
             channel = message.channel
-            file=open("test.txt","a")
+            dirctory = os.path.dirname(__file__)
+            filel=discord.File(dirctory+"test.txt")
+            file=open(filel=filel,"a")
             tmp=str(file.read()).split()
             try:
                 for i in tmp:
