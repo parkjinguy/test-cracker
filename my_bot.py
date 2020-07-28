@@ -503,11 +503,9 @@ class chatbot(discord.Client):
                 return
             return
         #참여 여부
-        if message.content == "!참가":
+        if message.content == "!참가@":
             channel = message.channel
-            dirctory = os.path.dirname(__file__)
-            filel=discord.File(dirctory+"test.txt")
-            file=open(filel=filel)
+            file=open("test.txt","a")
             tmp=str(file.read()).split()
             try:
                 for i in tmp:
@@ -521,7 +519,7 @@ class chatbot(discord.Client):
             except:
                 return
             return
-        if message.content == "!참가취소":
+        if message.content == "!참가취소@":
             channel = message.channel
             file=open("test.txt","r")
             tm=[]
@@ -536,7 +534,7 @@ class chatbot(discord.Client):
             fill.close()
             return
 
-        if message.content == "!참가인원":
+        if message.content == "!참가인원@":
             channel = message.channel
             try:
                 tm="현재 : "
@@ -576,7 +574,7 @@ class chatbot(discord.Client):
             except:
                 await channel.send("다시입력해주세요")
             return
-        if message.content == "!참가결과":
+        if message.content == "!참가결과@":
             channel = message.channel
             result="참여인원 : "
             file=open("test.txt","r")
