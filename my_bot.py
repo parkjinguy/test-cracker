@@ -506,7 +506,7 @@ class chatbot(discord.Client):
         if message.content == "!참가":
             channel = message.channel
             dirctory = os.path.dirname(__file__)
-            fi = discord.File("test.txt")
+            fi = discord.File(dirctory+"test.txt")
             file=open(fi,"a")
             tmp=str(file.read()).split()
             try:
@@ -579,7 +579,7 @@ class chatbot(discord.Client):
         if message.content == "!참가결과":
             channel = message.channel
             dirctory = os.path.dirname(__file__)
-            fi = discord.File("test.txt")
+            fi = discord.File(dirctory+"test.txt")
             result="참여인원 : "
             file=open(fi,"r")
             li=file.read().count("\n")
