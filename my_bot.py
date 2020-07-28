@@ -507,7 +507,7 @@ class chatbot(discord.Client):
             channel = message.channel
             dirctory = os.path.dirname(__file__)
             filel=discord.File(dirctory+"test.txt")
-            file=open("test.txt","a")
+            file=open(filel=filel)
             tmp=str(file.read()).split()
             try:
                 for i in tmp:
