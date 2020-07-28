@@ -580,9 +580,10 @@ class chatbot(discord.Client):
             channel = message.channel
             tm="현재 : "
             count=0
+            res=len(participation)
             for i in participation:
                 count=count+1
-                if count >= 2 and count != res:
+                if count >= 1 and count != res:
                     tm=tm+i+", "
                 else:
                     tm=tm+i
@@ -591,9 +592,15 @@ class chatbot(discord.Client):
             return
         if "!참여 " in message.content:
             channel = message.channel
-            arr_str = str(message.content).split(" ")
-            name = arr_str[1]
-            participation.append(name)
+            if "Cracker" == message.author.name or "냥이" == message.author.name:
+                arr_str = str(message.content).split(" ")
+                name = arr_str[1]
+                for i in participation:
+                    if i == name:
+                        await channel.send("중복참가입니다.")
+                        return
+                participation.append(name)
+                await channel.send(name + "님을 추가했습니다.")
             return
         if message.content == "!참가결과":
             channel = message.channel
@@ -604,10 +611,10 @@ class chatbot(discord.Client):
                 res=len(participation)
                 for aa in participation:
                     count=count+1
-                    if count >= 2 and count != res:
+                    if count >= 1 and count != res:
                         tm=tm+aa+", "
                     else:
-                        tm=tm+aa
+                        tm=tm+aa+" "
                 if count == 0:
                     await channel.send("참가자가 없습니다.")
                 else:
