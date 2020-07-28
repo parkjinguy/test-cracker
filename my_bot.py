@@ -636,7 +636,6 @@ class chatbot(discord.Client):
                 return
         except:
             await channel.send("에러")
-            return
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
 if __name__ == "__main__":
