@@ -36,28 +36,6 @@ class chatbot(discord.Client):
         if message.author.bot:
             return None
         # message.content = message의 내용
-        if message.content == "!바보":
-            # 현재 채널을 받아옴
-            channel = message.channel
-            # 답변 내용 구성
-            msg = "너도 바보"
-            # msg에 지정된 내용대로 메시지를 전송
-            await channel.send(msg)
-            return None;
-        if message.content == "!안녕":
-            # 현재 채널을 받아옴
-            channel = message.channel
-            # 답변 내용 구성
-            msg = "연습중인 스뜐기입니다."
-            # msg에 지정된 내용대로 메시지를 전송
-            await channel.send(msg)
-            return None
-        #메시지 해당 사람 태그 호출
-        '''if message.content == "과자":
-            channel = message.channel;
-            msg = "<@{}>".format("#9522")
-            await client.send_message(channel, "<@creake>")
-            return None'''
         if message.content == "!도움말":
             aa="명령어 :  !아잇, !냥이, !안녕, !팀설정, !팀결과, !패치로그 !찌릿, !잠, !일해, !레드, !크래커, !냥, !창규, !냥대노, !죄송\n"
             aa= aa+" !냥이월급날, !보리, !리브, !햄울찜, 기분좋아, !초코, !여긴 따뜻해, !도라이, !나루토는 전설이다, !투표, !투표결과, !찬성,\n"
