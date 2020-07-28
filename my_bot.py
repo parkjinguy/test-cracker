@@ -582,10 +582,10 @@ class chatbot(discord.Client):
             count=0
             for i in participation:
                 count=count+1
-                 if count >= 2 and count != res:
-                        tm=tm+i+", "
-                    else:
-                        tm=tm+i
+                if count >= 2 and count != res:
+                    tm=tm+i+", "
+                else:
+                    tm=tm+i
             await channel.send(tm)
             await channel.send("인원수는 : "+str(count)+"명")
             return
