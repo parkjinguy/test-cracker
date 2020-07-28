@@ -505,14 +505,14 @@ class chatbot(discord.Client):
         #참여 여부
         if message.content == "!참가@":
             channel = message.channel
-            file=open("test.txt","a")
+            file=open("https://github.com/parkjinguy/test-cracker/blob/master/test.txt","a")
             tmp=str(file.read()).split()
             try:
                 for i in tmp:
                     if i == message.author.name:
                         await channel.send("중복참가입니다.")
                         return
-                file=open("test.txt","a")
+                file=open("https://github.com/parkjinguy/test-cracker/blob/master/test.txt","a")
                 file.write(message.author.name+"\n")
                 await channel.send(message.author.name+"님 참가하였습니다.")
                 file.close()
@@ -521,12 +521,12 @@ class chatbot(discord.Client):
             return
         if message.content == "!참가취소@":
             channel = message.channel
-            file=open("test.txt","r")
+            file=open("https://github.com/parkjinguy/test-cracker/blob/master/test.txt","r")
             tm=[]
             for i in str(file.read()).split():
                 if i != message.author.name:
                     tm.append(i)
-            fill=open("test.txt","w")
+            fill=open("https://github.com/parkjinguy/test-cracker/blob/master/test.txt","w")
             for i in tm:
                 fill.write(i+"\n")
             await channel.send("취소되었습니다.")
@@ -557,14 +557,14 @@ class chatbot(discord.Client):
                 if "Cracker" == message.author.name or "냥이" == message.author.name:
                     arr_str = str(message.content).split()
                     name = arr_str[1]
-                    file=open("test.txt","r")
+                    file=open("https://github.com/parkjinguy/test-cracker/blob/master/test.txt","r")
                     tmp=str(file.read()).split()
                     try:
                         for i in tmp:
                             if i == name:
                                 await channel.send("중복참가입니다.")
                                 return
-                        file=open("test.txt","a")
+                        file=open("https://github.com/parkjinguy/test-cracker/blob/master/test.txt","a")
                         file.write(name+" \n")
                         await channel.send(name+"님 참가하였습니다.")
                         file.close()
@@ -577,10 +577,10 @@ class chatbot(discord.Client):
         if message.content == "!참가결과@":
             channel = message.channel
             result="참여인원 : "
-            file=open("test.txt","r")
+            file=open("https://github.com/parkjinguy/test-cracker/blob/master/test.txt","r")
             li=file.read().count("\n")
             file.close()
-            file=open("test.txt.","r")
+            file=open("https://github.com/parkjinguy/test-cracker/blob/master/test.txt","r")
             count=1
             for i in str(file.read()).split():
                 if count >= 1 and count != li:
