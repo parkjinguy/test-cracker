@@ -557,6 +557,7 @@ class chatbot(discord.Client):
             except:
                 await channel.send("현재 검색 유저의 경기가 없습니다. \n")
                 return
+            return
         #참여 여부
         if message.content == "!참가":
             channel = message.channel
