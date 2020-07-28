@@ -576,7 +576,7 @@ class chatbot(discord.Client):
                     return
             await channel.send("참가가자 아닙니다.")
             return
-        if message.content == "!참여인원":
+        if message.content == "!참가인원":
             channel = message.channel
             tm="현재 : "
             count=0
@@ -588,6 +588,12 @@ class chatbot(discord.Client):
                     tm=tm+i
             await channel.send(tm)
             await channel.send("인원수는 : "+str(count)+"명")
+            return
+        if "!참여 " in message.content:
+            channel = message.channel
+            arr_str = str(message.content).split(" ")
+            name = arr_str[1]
+            participation.append(name)
             return
         if message.content == "!참가결과":
             channel = message.channel
