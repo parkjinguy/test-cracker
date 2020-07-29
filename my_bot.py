@@ -503,7 +503,7 @@ class chatbot(discord.Client):
                 return
             return
         #참여 여부
-        if message.content == "!참가@":
+        """if message.content == "!참가@":
             channel = message.channel
             file=open("https://github.com/parkjinguy/test-cracker/blob/master/test.txt","a")
             tmp=str(file.read()).split()
@@ -591,7 +591,7 @@ class chatbot(discord.Client):
                     count=count+1
             await channel.send(result)
             file.close()
-            return
+            return"""
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
 if __name__ == "__main__":
