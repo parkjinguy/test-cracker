@@ -60,6 +60,7 @@ class chatbot(discord.Client):
                 #await message.delete() 현재 관리자로 인해 비활성화
         
         if "!오픈" in message.content:
+            channel = message.channel
             #dirctory = os.path.dirname(__file__)
             #file=discord.File(dirctory+"a21.jpg")
             #await message.channel.send(file=file)
