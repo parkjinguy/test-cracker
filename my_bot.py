@@ -16,7 +16,8 @@ topo1=[]
 topo2=[]
 topo3=[]
 #참여
-participation=[]
+participation1=[]
+participation2=[]
 class chatbot(discord.Client):
     # 프로그램이 처음 실행되었을 때 초기 구성
     async def on_ready(self):
@@ -37,11 +38,12 @@ class chatbot(discord.Client):
             return None
         # message.content = message의 내용
         if message.content == "!도움말":
-            aa= "명령어 : !팀설정, !팀결과, !투표, !투표결과, !찬성, !반대, !투표종료, !롤., !참가, !참가결과, !참가취소\n"
+            aa= "명령어 : !팀설정, !팀결과, !투표, !투표결과, !찬성, !반대, !투표종료, !롤., !참여설정., !참여목록, !참여.\n"
+            aa= "        !참여인원., !참여종료.\n"
             aa= aa+"!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다.) \n"
             aa= aa+"!투표설정은 !투표 투표내용 하면 투표가 시작되며 !찬성, !반대로 투표를 하며 !투표결과로 결과를 확인합니다 그리고 !투표종료를 하면 중지를 합니다.\n "
             aa= aa+"!롤.은 .뒤에 롤닉네임을 그대로 적어주시면 잠시뒤에 자동으로 출력이됩니다.\n"
-            aa= aa+"참가 여부는 !참가만 입력하면 자동 참가되고 최소는 !참가취소 결과보기는 !참가결과 이며 결과는 한번만 출력됩니다.\n"
+            aa= aa+"참여순서는 참여설정, 참여, 참여인원, 참여종료 이며 현재 테스트 중인 기능입니다.\n"
             if message.author.dm_channel:
                 await message.author.dm_channel.send(aa)
             elif message.author.dm_channel is None:
@@ -294,7 +296,87 @@ class chatbot(discord.Client):
                 await channel.send("현재 검색 유저의 경기가 없습니다. \n")
                 return
             return
-        
+        #
+        if "!참여설정." in message.content:
+            channel = message.channel
+            arr = str(message.content).split(".")
+            for i in participation1:
+                if i == arr[1]:
+                    await channel.send("이미 있습니다.")
+                    return
+                else:
+                    participation1.append(arr[1])
+                    participation2.append("1")
+                    await channel.send(message.author.name+"님이 "+arr[1]+" 참여 여부 생성 하였습니다.")
+                    return
+            participation1.append(arr[1])
+            participation2.append("1")
+            await channel.send(message.author.name+"님이 "+arr[1]+" 참여 여부 생성 하였습니다.")
+        if "!참여목록" in message.content:
+            channel = message.channel
+            tm=""
+            num=len(participation1)
+            for i in participation1:
+                tm=tm+i+"\n"
+            await channel.send(tm)
+            return
+        if "!참여." in message.content:
+            channel = message.channel
+            count=0
+            arr = str(message.content).split(".")
+            for i in participation1:
+                if "1" == i:
+                    count=count+1
+                elif i == arr[1]:
+                    print(participation2)
+                    if "1" != participation2[count]:
+                        del participation2[count]
+                        tm=participation2[count]+", "+message.author.name
+                        participation2.insert(count,tm)
+                    else:
+                        del participation2[count]
+                        tm=message.author.name
+                        participation2.insert(count,tm)
+                    await channel.send(message.author.name+"님이 "+i+"에 참여 하였습니다.")
+                    return
+                else:
+                    count=count+1
+            await channel.send("참여 목록에 없습니다.")
+            return
+        if "!참여인원." in message.content:
+            channel = message.channel
+            count=0
+            tmp=""
+            arr = str(message.content).split(".")
+            for i in participation1:
+                if i == arr[1]:
+                    num=0
+                    tm=str(participation2[count]).split(",")
+                    for a in tm:
+                        num=num+1
+                    await channel.send("현재 인원 : "+participation2[count]+"이며")
+                    await channel.send("인원은 : "+str(num)+"입니다.")
+                    return
+                else:
+                    count=count+1
+            await channel.send("참여 목록에 없습니다.")
+            return
+        if "!참여종료." in message.content:
+            channel = message.channel
+            count=0
+            arr = str(message.content).split(".")
+            for i in participation1:
+                if i == arr[1]:
+                    del participation1[count]
+                    del participation2[count]
+                    print(participation1)
+                    print(participation2)
+                    await channel.send(i+" 참여가 종료 되었습니다.")
+                    return
+                else:
+                    count=count+1
+            await channel.send("참여 목록에 없습니다.")
+            return
         
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
