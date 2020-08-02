@@ -330,8 +330,8 @@ class chatbot(discord.Client):
                 elif i == arr[1]:
                     print(participation2)
                     if "1" != participation2[count]:
-                        del participation2[count]
                         tm=participation2[count]+", "+message.author.name
+                        del participation2[count]
                         participation2.insert(count,tm)
                     else:
                         del participation2[count]
