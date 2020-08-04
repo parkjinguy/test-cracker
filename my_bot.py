@@ -371,11 +371,11 @@ class chatbot(discord.Client):
             row = curs.fetchone()
             #try:
             while row:
-                tmp = tmp + str(row[0])+" "
+                tmp = tmp + str(row[0])+". "
                 count=count+1
                 row=curs.fetchone()
             conn.close()
-            await channel.send("현재 인원 : "+tmp+"이며")
+            await channel.send("현재 인원 : "+tmp+" 이며")
             await channel.send("인원은 : "+str(count)+"입니다.")
             return
             #except:
