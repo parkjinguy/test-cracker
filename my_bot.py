@@ -340,7 +340,7 @@ class chatbot(discord.Client):
             conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
             curs = conn.cursor()
             arr = str(message.content).split(".")
-            sql = "select * from cat1 where name='"+arr[1]+"'"
+            sql = "select * from cat1 where name='"+str(message.author.name)+"'"
             curs.execute(sql)
             try:
                 row = curs.fetchone()
