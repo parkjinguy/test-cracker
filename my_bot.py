@@ -340,7 +340,7 @@ class chatbot(discord.Client):
             conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
             curs = conn.cursor()
             arr = str(message.content).split(".")
-            sql = "select * from cat1 where name='"+str(message.author.name)+"'"
+            sql = "select * from cat1 where name='"+arr[1]+"'"
             curs.execute(sql)
             try:
                 row = curs.fetchone()
@@ -348,12 +348,23 @@ class chatbot(discord.Client):
                 conn.close()
                 conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
                 curs = conn.cursor()
-                sql = "insert into cat2 values("+str(row[0])+",'"+str(message.author.name)+"')"
+                sql = "select name cat2 where name='"+str(message.author.name)+"'"
                 curs.execute(sql)
-                conn.commit()
-                conn.close()
-                await channel.send(message.author.name+"님이 "+str(row[1])+"에 참여 하였습니다.")
-                return
+                row = curs.fetchone()
+                try:
+                    str(row[0])
+                    conn.close()
+                    await channel.send("이미 참가자 입니다.")
+                    return
+                except:
+                    conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
+                    curs = conn.cursor()
+                    sql = "insert into cat2 values("+str(row[0])+",'"+str(message.author.name)+"')"
+                    curs.execute(sql)
+                    conn.commit()
+                    conn.close()
+                    await channel.send(message.author.name+"님이 "+str(row[1])+"에 참여 하였습니다.")
+                    return
             except:
                 await channel.send("참여 목록에 없습니다.")
                 return
