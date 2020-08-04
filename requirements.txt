@@ -1,5 +1,5 @@
 asyncio
 discord.py
 setuptools
-requests==2.8.1
+requests==2.20.0
 pymysql
