@@ -343,6 +343,7 @@ class chatbot(discord.Client):
             arr = str(message.content).split(".")
             sql = "select * from cat1 where name='"+arr[1]+"'"
             curs.execute(sql)
+            try:
                 row = curs.fetchone()
                 str(row[0])
                 conn.close()
