@@ -299,83 +299,114 @@ class chatbot(discord.Client):
         #
         if "!참여설정." in message.content:
             channel = message.channel
+            conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
             arr = str(message.content).split(".")
-            for i in participation1:
-                if i == arr[1]:
-                    await channel.send("이미 있습니다.")
-                    return
-                else:
-                    participation1.append(arr[1])
-                    participation2.append("1")
-                    await channel.send(message.author.name+"님이 "+arr[1]+" 참여 여부 생성 하였습니다.")
-                    return
-            participation1.append(arr[1])
-            participation2.append("1")
-            await channel.send(message.author.name+"님이 "+arr[1]+" 참여 여부 생성 하였습니다.")
+            curs = conn.cursor()
+            sql = "select name from cat1 where name='"+arr[1]+"'"
+            curs.execute(sql)
+            row = curs.fetchone()
+            try:
+                str(row[0])
+                await channel.send("이미 존재 합니다.")
+                conn.close()
+                return
+            except:
+                conn.close()
+                conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
+                curs = conn.cursor()
+                sql = "insert into cat1(name) values('"+arr[1]+"')"
+                curs.execute(sql)
+                conn.commit()
+                conn.close()
+                await channel.send(message.author.name+"님이 "+arr[1]+" 참여 여부 생성 하였습니다.")
+                return
+            return
         if "!참여목록" in message.content:
             channel = message.channel
-            tm=""
-            num=len(participation1)
-            for i in participation1:
-                tm=tm+i+"\n"
-            await channel.send(tm)
+            conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
+            curs = conn.cursor()
+            sql = "select name from cat1"
+            curs.execute(sql)
+            row = curs.fetchone()
+            tmp=""
+            while row:
+                tmp=tmp+str(row[0])+"\n"
+                row=curs.fetchone()
+            await channel.send(tmp)
             return
         if "!참여." in message.content:
             channel = message.channel
-            count=0
+            conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
+            curs = conn.cursor()
             arr = str(message.content).split(".")
-            for i in participation1:
-                if "1" == i:
-                    count=count+1
-                elif i == arr[1]:
-                    print(participation2)
-                    if "1" != participation2[count]:
-                        tm=participation2[count]+", "+message.author.name
-                        del participation2[count]
-                        participation2.insert(count,tm)
-                    else:
-                        del participation2[count]
-                        tm=message.author.name
-                        participation2.insert(count,tm)
-                    await channel.send(message.author.name+"님이 "+i+"에 참여 하였습니다.")
-                    return
-                else:
-                    count=count+1
-            await channel.send("참여 목록에 없습니다.")
+            sql = "select * from cat1 where name='"+arr[1]+"'"
+            curs.execute(sql)
+            try:
+                row = curs.fetchone()
+                str(row[0])
+                conn.close()
+                conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
+                curs = conn.cursor()
+                sql = "insert into cat2 values("+str(row[0])+",'"+str(message.author.name)+"')"
+                curs.execute(sql)
+                conn.commit()
+                conn.close()
+                await channel.send(message.author.name+"님이 "+str(row[1])+"에 참여 하였습니다.")
+                return
+            except:
+                await channel.send("참여 목록에 없습니다.")
+                return
             return
         if "!참여인원." in message.content:
             channel = message.channel
+            conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
+            curs = conn.cursor()
+            
             count=0
-            tmp=""
+            tmp="인원은 : "
             arr = str(message.content).split(".")
-            for i in participation1:
-                if i == arr[1]:
-                    num=0
-                    tm=str(participation2[count]).split(",")
-                    for a in tm:
-                        num=num+1
-                    await channel.send("현재 인원 : "+participation2[count]+"이며")
-                    await channel.send("인원은 : "+str(num)+"입니다.")
-                    return
-                else:
-                    count=count+1
-            await channel.send("참여 목록에 없습니다.")
+            sql = "select cat2.name from cat2 inner join cat1 on cat1.num=cat2.num where cat1.name = '"+arr[1]+"'"
+            curs.execute(sql)
+            row = curs.fetchone()
+            #try:
+            while row:
+                tmp = tmp + str(row[0])+" "
+                count=count+1
+                row=curs.fetchone()
+            conn.close()
+            await channel.send("현재 인원 : "+tmp+"이며")
+            await channel.send("인원은 : "+str(count)+"입니다.")
             return
+            #except:
+                #await channel.send("현재 목록에 없습니다.")
+                #return
         if "!참여종료." in message.content:
             channel = message.channel
-            count=0
             arr = str(message.content).split(".")
-            for i in participation1:
-                if i == arr[1]:
-                    del participation1[count]
-                    del participation2[count]
-                    print(participation1)
-                    print(participation2)
-                    await channel.send(i+" 참여가 종료 되었습니다.")
-                    return
-                else:
-                    count=count+1
-            await channel.send("참여 목록에 없습니다.")
+            try:
+                conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
+                curs = conn.cursor()
+                sql = "select num from cat1 where name  = '"+str(arr[1])+"'"
+                curs.execute(sql)
+                row = curs.fetchone()
+                conn.close()
+                conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
+                curs = conn.cursor()
+                sql = "delete from cat2 where num  = "+str(row[0])
+                curs.execute(sql)
+                conn.commit()
+                conn.close()
+                conn = pymysql.connect(host='axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', user='jji99uozpvwxyq5v', password='wvombycad95zjtqp',db='ar5orud2kuyhu3gv', charset='utf8')
+                curs = conn.cursor()
+                sql = "delete from cat1 where name  = '"+arr[1]+"'"
+                curs.execute(sql)
+                conn.commit()
+                conn.close()
+                await channel.send(i+" 참여가 종료 되었습니다.")
+                return
+            except:
+                await channel.send("참여 목록에 없습니다.")
+                return
             return
         
     
