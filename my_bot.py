@@ -4,6 +4,7 @@ import random
 #from urllib import parse
 import requests
 import json
+import pymysql
 #팀나누기
 tmp=[]
 tmpt=[]
