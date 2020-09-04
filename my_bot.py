@@ -40,7 +40,7 @@ class chatbot(discord.Client):
         # message.content = message의 내용
         if message.content == "!도움말":
             aa= "명령어 : !팀설정, !팀결과, !투표, !투표결과, !찬성, !반대, !투표종료, !롤., !참여설정., !참여목록, !참여.\n"
-            aa= aa+"!참여인원., !참가입력., !참여종료.\n"
+            aa= aa+"!참여인원., !참가입력., !참여종료., !Buckshot, !slug \n"
             aa= aa+"!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다.) \n"
             aa= aa+"!투표설정은 !투표 투표내용 하면 투표가 시작되며 !찬성, !반대로 투표를 하며 !투표결과로 결과를 확인합니다 그리고 !투표종료를 하면 중지를 합니다.\n "
             aa= aa+"!롤.은 .뒤에 롤닉네임을 그대로 적어주시면 잠시뒤에 자동으로 출력이됩니다.\n"
@@ -432,6 +432,32 @@ class chatbot(discord.Client):
                 except:
                     await channel.send("참여 목록에 없습니다.")
                     return
+            return
+        if "!Buckshot" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정"
+            tm = tm+"12/70 5.25mm Buckshot 몸 8x27 갑바 15 6운\n"
+            tm = tm+ "12/70 8.5mm Magnum Buckshot 몸 8x50 갑바 26 6운\n"
+            tm = tm+"12/70 6.5mm Express Buckshot 몸 9x35 갑바 26 6운\n"
+            tm = tm+"12/70 7mm Buckshot 몸 8x39 갑 26 6운\n"
+            tm = tm+"12/70 Flechette 몸 8x25 갑바 31 3확6높\n"
+            await channel.send(tm)
+            return
+        if "!slug" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정"
+            tm = tm+"12x70 RIP 265 갑바 11 1무"
+            tm = tm+"12/70 HP Slug SuperFormance 몸 220 갑 12 1무"
+            tm = tm+"12/70 Grizzly 40 Slug 몸 190 갑 12 1확2희"
+            tm = tm+"12/70 HP Slug Copper Sabot Premier 몸 206 갑 46 1확2운3의"
+            tm = tm+"12x70 Led Slug 몸 167 갑 55 1확2낮3의"
+            tm = tm+"12/70 Poleva-3 Slug 몸 140 갑 40 1확2높3의"
+            tm = tm+"12/70 Dual Sabot Slug 몸 2x85 갑 65 1확2높3희"
+            tm = tm+"12/70 FTX Custom Lite Slug 몸 183 갑 65 2확3희"
+            tm = tm+"12/70 Poleva-6u Slug 몸 150 갑 50 2확3희"
+            tm = tm+"12/70 shell with .50 BMG bullet 몸 197 갑 57 2확3높4희"
+            tm = tm+"12/70 AP-20 Slug 몸 164 갑 65 3확4높5운6의"
+            await channel.send(tm)
             return
     
 # 프로그램이 실행되면 제일 처음으로 실행되는 함수
