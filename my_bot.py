@@ -435,7 +435,7 @@ class chatbot(discord.Client):
             return
         if "!Buckshot" in message.content:
             channel = message.channel
-            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정"
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"12/70 5.25mm Buckshot 몸 8x27 갑바 15 6운\n"
             tm = tm+ "12/70 8.5mm Magnum Buckshot 몸 8x50 갑바 26 6운\n"
             tm = tm+"12/70 6.5mm Express Buckshot 몸 9x35 갑바 26 6운\n"
@@ -445,7 +445,7 @@ class chatbot(discord.Client):
             return
         if "!slug" in message.content:
             channel = message.channel
-            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정"
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"12x70 RIP 265 갑바 11 1무"
             tm = tm+"12/70 HP Slug SuperFormance 몸 220 갑 12 1무"
             tm = tm+"12/70 Grizzly 40 Slug 몸 190 갑 12 1확2희"
