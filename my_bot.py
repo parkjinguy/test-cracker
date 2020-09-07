@@ -433,7 +433,7 @@ class chatbot(discord.Client):
                     await channel.send("참여 목록에 없습니다.")
                     return
             return
-        if "!Buckshot" in message.content:
+        if "!buckshot12" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"12/70 5.25mm Buckshot 몸 8x27 갑바 15 6운\n"
@@ -443,7 +443,7 @@ class chatbot(discord.Client):
             tm = tm+"12/70 Flechette 몸 8x25 갑바 31 3확6높\n"
             await channel.send(tm)
             return
-        if "!slug" in message.content:
+        if "!slug12" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"12x70 RIP 265 갑바 11 1무"
@@ -457,6 +457,39 @@ class chatbot(discord.Client):
             tm = tm+"12/70 Poleva-6u Slug 몸 150 갑 50 2확3희"
             tm = tm+"12/70 shell with .50 BMG bullet 몸 197 갑 57 2확3높4희"
             tm = tm+"12/70 AP-20 Slug 몸 164 갑 65 3확4높5운6의"
+            await channel.send(tm)
+            return
+        
+        if "!buckshot" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"20/70 5.6mm Buckshot 몸8x26 갑바12 6운"
+            tm = tm+"20/70 6.2mm Buckshot 몸8x22 갑바13 6운"
+            tm = tm+"20x70 7.5mm Buckshot 몸8x25 갑바14 6운"
+            tm = tm+"20/70 7.3mm Buckshot 몸9x23 갑바13 6운"
+            tm = tm+"12x70 Led Slug 몸 167 갑 55 1확2낮3의"
+            await channel.send(tm)
+            return
+        
+        if "!buckshot" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"20/70 Devastator Slug 몸198 갑바13 6무"
+            tm = tm+"20/70 Slug 'Poleva-3' 몸120 갑바35 1확2희"
+            tm = tm+"20x70 7.5mm Buckshot 몸8x25 갑바14 6운"
+            tm = tm+"20/70 Star Slug 몸154 갑바42 1확2높3무"
+            tm = tm+"20/70 Slug Poleva-6u 몸135 갑바40 1확2높3무"
+            await channel.send(tm)
+            return
+        
+        if "!9x19" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"20/70 Devastator Slug 몸198 갑바13 6무"
+            tm = tm+"20/70 Slug 'Poleva-3' 몸120 갑바35 1확2희"
+            tm = tm+"20x70 7.5mm Buckshot 몸8x25 갑바14 6운"
+            tm = tm+"20/70 Star Slug 몸154 갑바42 1확2높3무"
+            tm = tm+"20/70 Slug Poleva-6u 몸135 갑바40 1확2높3무"
             await channel.send(tm)
             return
     
