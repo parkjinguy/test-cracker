@@ -40,7 +40,7 @@ class chatbot(discord.Client):
         # message.content = message의 내용
         if message.content == "!도움말":
             aa= "명령어 : !팀설정, !팀결과, !투표, !투표결과, !찬성, !반대, !투표종료, !롤., !참여설정., !참여목록, !참여.\n"
-            aa= aa+"!참여인원., !참가입력., !참여종료., !Buckshot, !slug \n"
+            aa= aa+"!참여인원., !참가입력., !참여종료., !탄종류(9x19) \n"
             aa= aa+"!팀설정은 !팀설정 인원1 인원2 인원3로 설정을 하며 무조건 짝수만 가능합니다(설정하면 자동으로 팀을 나눕니다.) \n"
             aa= aa+"!투표설정은 !투표 투표내용 하면 투표가 시작되며 !찬성, !반대로 투표를 하며 !투표결과로 결과를 확인합니다 그리고 !투표종료를 하면 중지를 합니다.\n "
             aa= aa+"!롤.은 .뒤에 롤닉네임을 그대로 적어주시면 잠시뒤에 자동으로 출력이됩니다.\n"
@@ -433,7 +433,8 @@ class chatbot(discord.Client):
                     await channel.send("참여 목록에 없습니다.")
                     return
             return
-        if "!buckshot12" in message.content:
+        
+        if "!12/70" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"12/70 5.25mm Buckshot 몸 8x27 갑바 15 6운\n"
@@ -443,53 +444,231 @@ class chatbot(discord.Client):
             tm = tm+"12/70 Flechette 몸 8x25 갑바 31 3확6높\n"
             await channel.send(tm)
             return
-        if "!slug12" in message.content:
+        
+        if "!12x70" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
-            tm = tm+"12x70 RIP 265 갑바 11 1무"
-            tm = tm+"12/70 HP Slug SuperFormance 몸 220 갑 12 1무"
-            tm = tm+"12/70 Grizzly 40 Slug 몸 190 갑 12 1확2희"
-            tm = tm+"12/70 HP Slug Copper Sabot Premier 몸 206 갑 46 1확2운3의"
-            tm = tm+"12x70 Led Slug 몸 167 갑 55 1확2낮3의"
-            tm = tm+"12/70 Poleva-3 Slug 몸 140 갑 40 1확2높3의"
-            tm = tm+"12/70 Dual Sabot Slug 몸 2x85 갑 65 1확2높3희"
-            tm = tm+"12/70 FTX Custom Lite Slug 몸 183 갑 65 2확3희"
-            tm = tm+"12/70 Poleva-6u Slug 몸 150 갑 50 2확3희"
-            tm = tm+"12/70 shell with .50 BMG bullet 몸 197 갑 57 2확3높4희"
-            tm = tm+"12/70 AP-20 Slug 몸 164 갑 65 3확4높5운6의"
+            tm = tm+"12x70 RIP 265 갑바 11 1무\n"
+            tm = tm+"12/70 HP Slug SuperFormance 몸 220 갑 12 1무\n"
+            tm = tm+"12/70 Grizzly 40 Slug 몸 190 갑 12 1확2희\n"
+            tm = tm+"12/70 HP Slug Copper Sabot Premier 몸 206 갑 46 1확2운3의\n"
+            tm = tm+"12x70 Led Slug 몸 167 갑 55 1확2낮3의\n"
+            tm = tm+"12/70 Poleva-3 Slug 몸 140 갑 40 1확2높3의\n"
+            tm = tm+"12/70 Dual Sabot Slug 몸 2x85 갑 65 1확2높3희\n"
+            tm = tm+"12/70 FTX Custom Lite Slug 몸 183 갑 65 2확3희\n"
+            tm = tm+"12/70 Poleva-6u Slug 몸 150 갑 50 2확3희\n"
+            tm = tm+"12/70 shell with .50 BMG bullet 몸 197 갑 57 2확3높4희\n"
+            tm = tm+"12/70 AP-20 Slug 몸 164 갑 65 3확4높5운6의\n"
             await channel.send(tm)
             return
         
-        if "!buckshot" in message.content:
+        if "!20/70" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
-            tm = tm+"20/70 5.6mm Buckshot 몸8x26 갑바12 6운"
-            tm = tm+"20/70 6.2mm Buckshot 몸8x22 갑바13 6운"
-            tm = tm+"20x70 7.5mm Buckshot 몸8x25 갑바14 6운"
-            tm = tm+"20/70 7.3mm Buckshot 몸9x23 갑바13 6운"
-            tm = tm+"12x70 Led Slug 몸 167 갑 55 1확2낮3의"
+            tm = tm+"20/70 5.6mm Buckshot 몸8x26 갑바12 6운\n"
+            tm = tm+"20/70 6.2mm Buckshot 몸8x22 갑바13 6운\n"
+            tm = tm+"20x70 7.5mm Buckshot 몸8x25 갑바14 6운\n"
+            tm = tm+"20/70 7.3mm Buckshot 몸9x23 갑바13 6운\n"
+            tm = tm+"12x70 Led Slug 몸 167 갑 55 1확2낮3의\n"
             await channel.send(tm)
             return
         
-        if "!buckshot" in message.content:
+        if "!20x70" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
-            tm = tm+"20/70 Devastator Slug 몸198 갑바13 6무"
-            tm = tm+"20/70 Slug 'Poleva-3' 몸120 갑바35 1확2희"
-            tm = tm+"20x70 7.5mm Buckshot 몸8x25 갑바14 6운"
-            tm = tm+"20/70 Star Slug 몸154 갑바42 1확2높3무"
-            tm = tm+"20/70 Slug Poleva-6u 몸135 갑바40 1확2높3무"
+            tm = tm+"20/70 Devastator Slug 몸198 갑바13 6무\n"
+            tm = tm+"20/70 Slug 'Poleva-3' 몸120 갑바35 1확2희\n"
+            tm = tm+"20x70 7.5mm Buckshot 몸8x25 갑바14 6운\n"
+            tm = tm+"20/70 Star Slug 몸154 갑바42 1확2높3무\n"
+            tm = tm+"20/70 Slug Poleva-6u 몸135 갑바40 1확2높3무\n"
+            await channel.send(tm)
+            return
+        
+        if "!9x18" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"9x18 mm PM SP8 gzh 몸67 갑바2 6무\n"
+            tm = tm+"9x18 mm PM SP7 gzh 몸77 갑바5 6무\n"
+            tm = tm+"9x18 mm PM PSV 몸69 갑바5 6무\n"
+            tm = tm+"9x18 mm PM 9 P gzh 몸50 갑바16 1희\n"
+            tm = tm+"9x18 mm PM PSO gzh 몸54 갑바13 1희\n"
+            tm = tm+"9x18 mm PM PS gs PPO 몸55 갑바16 1낮\n"
+            tm = tm+"9x18 mm PM PRS gs 몸58 갑바16 1운\n"
+            tm = tm+"9x18 mm PM PPe gzh 몸61 갑바15 1낮\n"
+            tm = tm+"9x18 mm PM PPT gzh 몸59 갑바22 1높2의\n"
+            tm = tm+"9x18 mm PM Pst gzh 몸50 갑바26 1확2의\n"
+            tm = tm+"9x18 mm PM RG028 gzh 몸65 갑바26 1확2희\n"
+            tm = tm+"9x18 mm PM 9 BZT gzh 몸53 갑바28 1확2높3의\n"
+            tm = tm+"9x18 mm PM PMM	58 몸24 갑바33 2확3낮\n"
+            tm = tm+"9x18 mm PM PBM	40 몸28 갑바30 2확3높4의\n"
+            await channel.send(tm)
+            return
+        
+        if "!9x18" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"7.62x25mm TT LRNPC 몸66 갑바27 1운\n"
+            tm = tm+"7.62x25mm TT LRN 몸64 갑바28 1운\n"
+            tm = tm+"7.62x25mm TT FMJ43 몸60 갑바29 1높\n"
+            tm = tm+"7.62x25mm TT AKBS 몸58 갑바32 1높2의\n"
+            tm = tm+"7.62x25mm TT P gl 몸58 갑바32 1확2의\n"
+            tm = tm+"7.62x25mm TT PT gzh T 몸60 갑바34 1확2의\n"
+            tm = tm+"7.62x25mm TT Pst gzh 몸50 갑바36 2확3운4의\n"
             await channel.send(tm)
             return
         
         if "!9x19" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
-            tm = tm+"20/70 Devastator Slug 몸198 갑바13 6무"
-            tm = tm+"20/70 Slug 'Poleva-3' 몸120 갑바35 1확2희"
-            tm = tm+"20x70 7.5mm Buckshot 몸8x25 갑바14 6운"
-            tm = tm+"20/70 Star Slug 몸154 갑바42 1확2높3무"
-            tm = tm+"20/70 Slug Poleva-6u 몸135 갑바40 1확2높3무"
+            tm = tm+"9x19 mm RIP 몸102 갑바11 6무\n"
+            tm = tm+"9x19 mm QuakeMaker 몸85 갑바22 1확2의\n"
+            tm = tm+"9x19 mm PSO gzh 몸59 갑바32 1확2희\n"
+            tm = tm+"9x19 mm Luger CCI 몸70 갑바38 1확2희\n"
+            tm = tm+"9x19 mm Green Tracer 몸58 갑바33 1확2운3의\n"
+            tm = tm+"9x19 mm Pst gzh 몸54 갑바33 2확3희\n"
+            tm = tm+"9x19 mm AP 6.3 몸52 갑바48 3확4낮5높6의\n"
+            tm = tm+"9x19 mm 7N31 몸52 갑바53	3확4높5낮6운\n"
+            await channel.send(tm)
+            return
+        
+        if "!45" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+".45 RIP 몸127 갑바12 1의\n"
+            tm = tm+".45 ACP Hydra-Shok 몸95 갑바30 1확2운\n"
+            tm = tm+".45 ACP Lasermatch FMJ 몸74 갑바37 1확2높3의\n"
+            tm = tm+".45 ACP FMJ 몸72 갑바36 1확2높3의\n"
+            tm = tm+".45 ACP AP 몸70 갑바43 3확4높5운6희\n"
+            await channel.send(tm)
+            return
+        
+        if "!9x21" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"9x21 mm SP12 몸80 갑바63 1확2희\n"
+            tm = tm+"9x21 mm SP11 몸65 갑바44 1확2운\n"
+            tm = tm+"9x21 mm SP10 몸49 갑바46 3확4낮5운6희\n"
+            tm = tm+"9x21 mm SP13 몸63 갑바47 3확4높5낮6운\n"
+            await channel.send(tm)
+            return
+        
+        if "!5.7x28" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"5.7x28 mm R37.F 몸98 갑바7 1낮\n"
+            tm = tm+"5.7x28 mm SS198LF 몸74 갑바15 1확2의\n"
+            tm = tm+"5.7x28 mm R37.X 몸81 갑바14 1높2의\n"
+            tm = tm+"5.7x28 mm SS197SR 몸62 갑바22 2높3희\n"
+            tm = tm+"5.7x28 mm L191 몸58 갑바41 3확4운6희\n"
+            tm = tm+"5.7x28 mm SB193 몸54 갑바37 3확4낮5운6희\n"
+            tm = tm+"5.7x28 mm SS190 몸49 갑바43 3확4높5낮6운\n"
+            await channel.send(tm)
+            return
+        
+        if "!4.6x30" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"4.6x30mm Action SX 몸65 갑바39 1확2희3의\n"
+            tm = tm+"4.6x30mm Subsonic SX 몸45 갑바46 3확4높5운6희\n"
+            tm = tm+"4.6x30mm FMJ SX 몸43 갑바41 4확5낮6운\n"
+            tm = tm+"4.6x30mm AP SX 몸35 갑바46 5확6높\n"
+            await channel.send(tm)
+            return
+        
+        if "!9x39" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"9x39 mm SP-5 몸68 갑바52 3확4높5운6희\n"
+            tm = tm+"9x39 mm SP-6 몸58 갑바60 4확5높6낮\n"
+            tm = tm+"9x39 mm 7N9 SPP 몸64 갑바56 4확5높6낮\n"
+            tm = tm+"9x39 mm 7N12 BP 몸60 갑바68 4확6높\n"
+            await channel.send(tm)
+            return
+        
+        if "!366" in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+".366 TKM Geksa 몸110 갑바38 1확2운\n"
+            tm = tm+".366 TKM FMJ 몸98 갑바48 2확3낮5의\n"
+            tm = tm+".366 TKM EKO 몸73 갑바40 3확4운5의\n"
+            tm = tm+".366 AP 몸90 갑바60 4확5높6낮\n"
+            await channel.send(tm)
+            return
+        
+        if "!5.45x39 in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"5.45x39 mm SP 몸68 갑바34 1확2의\n"
+            tm = tm+"5.45x39 mm HP 몸74 갑바20 1확2의\n"
+            tm = tm+"5.45x39 mm PRS 몸60 갑바281확2희\n"
+            tm = tm+"5.45x39 mm US 몸65 갑바34 1확2운\n"
+            tm = tm+"5.45x39 mm FMJ 몸54 갑바30 1확2높3의\n"
+            tm = tm+"5.45x39 mm T 몸57 갑바38 2확3의\n"
+            tm = tm+"5.45x39 mm PS 몸50 갑바35 2확3낮3의\n"
+            tm = tm+"5.45x39 mm PP 몸46 갑바32 3확4운5의\n"
+            tm = tm+"5.45x39 mm BP 몸48 갑바41 3확4낮5희\n"
+            tm = tm+"5.45x39 mm BT 몸44 갑바49 3확4높5낮6운\n"
+            tm = tm+"5.45x39 mm BS 몸40 갑바57 5확6높\n"
+            tm = tm+"5.45x39 mm FMJ 몸54 갑바30 1확2높3의\n"
+            tm = tm+"5.45x39 mm 7N39 'Igolnik' 몸37 갑바60 6확\n"
+            await channel.send(tm)
+            return
+        
+        if "!5.56x45 in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"5.56x45 mm Warmage 몸85 갑바14 1의\n"
+            tm = tm+"5.56x45 mm 55 HP 몸75 갑바22 1높\n"
+            tm = tm+"5.56x45 mm Mk 255 Mod 몸60 갑바32 1확2낮3의\n"
+            tm = tm+"5.56x45 mm M856 T 몸55 갑바34 2확3운4의\n"
+            tm = tm+"5.56x45 mm 55 FMJ 몸52 갑바33 2확3낮4의\n"
+            tm = tm+"5.56x45 mm M855 몸50 갑바37 3확4운5희\n"
+            tm = tm+"5.56x45 mm M856A1 몸51 갑바52 3확4높5낮6운\n"
+            tm = tm+"5.56x45 mm M855A1 몸45 갑바52 4확5높5낮\n"
+            tm = tm+"5.56x45 mm M995 몸40 갑바58 5확6높\n"
+            await channel.send(tm)
+            return
+        
+        if "!7.62x51 in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"7.62x39 mm HP 몸87 갑바35 1확2낮3의\n"
+            tm = tm+"7.62x39 mm US 몸56 갑바42 2확3높4운5의\n"
+            tm = tm+"7.62x39 mm T45M 몸62 갑바46 3확4운5의\n"
+            tm = tm+"7.62x39 mm PS 몸57 갑바52 3확4낮5운6희\n"
+            tm = tm+"7.62x39 mm BP 몸58 갑바63 4확5높6낮\n"
+            await channel.send(tm)
+            return
+        
+        if "!7.62x51 in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"7.62x39 mm HP 몸87 갑바35 1확2낮3의\n"
+            tm = tm+"7.62x39 mm US 몸56 갑바42 2확3높4운5의\n"
+            tm = tm+"7.62x39 mm T45M 몸62 갑바46 3확4운5의\n"
+            tm = tm+"7.62x39 mm PS 몸57 갑바52 3확4낮5운6희\n"
+            tm = tm+"7.62x39 mm BP 몸58 갑바63 4확5높6낮\n"
+            await channel.send(tm)
+            return
+        
+        if "!7.62x54 in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"7.62x54R T-46M 몸82 갑바83 4확5낮6운\n"
+            tm = tm+"7.62x54R LPS Gzh 몸81 갑바78 4확5낮6운\n"
+            tm = tm+"7.62x54R 7N1 Sniper cartridge 몸86 갑바84 4확5높6낮\n"
+            tm = tm+"7.62x54R 7BT1 몸78 갑바87 6확\n"
+            tm = tm+"7.62x54R SNB 몸75 갑바87 6확\n"
+            tm = tm+"7.62x54R 7N37 몸72 갑바88 6확\n"
+            await channel.send(tm)
+            return
+        
+        if "!12.7x55 in message.content:
+            channel = message.channel
+            tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
+            tm = tm+"12.7x55 mm PS12A 몸165 갑바22 1확\n"
+            tm = tm+"12.7x55 mm PS12 몸115 갑바60 2확3높4희5의\n"
+            tm = tm+"12.7x55 mm PS12B 몸102 갑바57 4확5높6낮\n"
             await channel.send(tm)
             return
     
