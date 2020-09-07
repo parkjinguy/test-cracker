@@ -595,7 +595,7 @@ class chatbot(discord.Client):
             await channel.send(tm)
             return
         
-        if "!5.45x39 in message.content:
+        if "!5.45x39" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"5.45x39 mm SP 몸68 갑바34 1확2의\n"
@@ -614,7 +614,7 @@ class chatbot(discord.Client):
             await channel.send(tm)
             return
         
-        if "!5.56x45 in message.content:
+        if "!5.56x45" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"5.56x45 mm Warmage 몸85 갑바14 1의\n"
@@ -629,7 +629,7 @@ class chatbot(discord.Client):
             await channel.send(tm)
             return
         
-        if "!7.62x51 in message.content:
+        if "!7.62x51" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"7.62x39 mm HP 몸87 갑바35 1확2낮3의\n"
@@ -640,7 +640,7 @@ class chatbot(discord.Client):
             await channel.send(tm)
             return
         
-        if "!7.62x51 in message.content:
+        if "!7.62x51" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"7.62x39 mm HP 몸87 갑바35 1확2낮3의\n"
@@ -651,7 +651,7 @@ class chatbot(discord.Client):
             await channel.send(tm)
             return
         
-        if "!7.62x54 in message.content:
+        if "!7.62x54" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"7.62x54R T-46M 몸82 갑바83 4확5낮6운\n"
@@ -663,7 +663,7 @@ class chatbot(discord.Client):
             await channel.send(tm)
             return
         
-        if "!12.7x55 in message.content:
+        if "!12.7x55" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"12.7x55 mm PS12A 몸165 갑바22 1확\n"
