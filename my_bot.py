@@ -504,7 +504,7 @@ class chatbot(discord.Client):
             await channel.send(tm)
             return
         
-        if "!9x18" in message.content:
+        if "!7.62x25" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"7.62x25mm TT LRNPC 몸66 갑바27 1운\n"
