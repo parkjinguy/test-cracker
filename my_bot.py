@@ -629,7 +629,7 @@ class chatbot(discord.Client):
             await channel.send(tm)
             return
         
-        if "!7.62x51" in message.content:
+        if "!7.62x39" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
             tm = tm+"7.62x39 mm HP 몸87 갑바35 1확2낮3의\n"
@@ -643,11 +643,12 @@ class chatbot(discord.Client):
         if "!7.62x51" in message.content:
             channel = message.channel
             tm = "무:의미없음, 희:아주 희박, 운:운좋으면, 낮:관통률낮음, 높:높은확률, 확:확정\n"
-            tm = tm+"7.62x39 mm HP 몸87 갑바35 1확2낮3의\n"
-            tm = tm+"7.62x39 mm US 몸56 갑바42 2확3높4운5의\n"
-            tm = tm+"7.62x39 mm T45M 몸62 갑바46 3확4운5의\n"
-            tm = tm+"7.62x39 mm PS 몸57 갑바52 3확4낮5운6희\n"
-            tm = tm+"7.62x39 mm BP 몸58 갑바63 4확5높6낮\n"
+            tm = tm+"7.62x51 mm BPZ FMJ 몸88 갑바33 3확4희\n"
+            tm = tm+"7.62x51 mm TPZ SP 몸60 갑바40 3확4높5희\n"
+            tm = tm+"7.62x51 mm M80 몸80 갑바66 4확5높6낮\n"
+            tm = tm+"7.62x51 mm M62 몸79 갑바75 5확6높\n"
+            tm = tm+"7.62x51 mm M61 몸70 갑바83 6확\n"
+            tm = tm+"7.62x51 mm M993 몸67 갑바85 6확\n"
             await channel.send(tm)
             return
         
